@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Hub Card Dimensions -->
+    <item name="card_aspect_ratio" type="dimen" format="float">1.75</item>
+    <dimen name="card_width">320dp</dimen>
+    <dimen name="card_height">182dp</dimen>
+    <dimen name="card_margin">14dp</dimen>
+    <dimen name="card_corner_radius">12dp</dimen>
+
+    <!-- Header Dimensions -->
+    <dimen name="header_padding_horizontal">72dp</dimen>
+    <dimen name="header_padding_top">40dp</dimen>
+    <dimen name="header_title_size">48sp</dimen>
+
+    <!-- Game View Dimensions -->
+    <dimen name="game_board_margin">40dp</dimen>
+    <dimen name="game_focus_border_width">6dp</dimen>
+    <dimen name="game_inner_focus_border_width">2.5dp</dimen>
+</resources>

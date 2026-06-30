@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Brainy Arcade</string>
+    <string name="hero_selection">اختيار البطل</string>
+    <string name="recently_played">لعبت مؤخراً</string>
+    <string name="discover">استكشف</string>
+    <string name="my_records">أرقامي القياسية</string>
+    <string name="home">الرئيسية</string>
+    <string name="categories">الفئات</string>
+    <string name="select_level">اختر المستوى</string>
+    <string name="victory">انتصار!</string>
+    <string name="game_over">انتهت اللعبة</string>
+    <string name="restart">إعادة التشغيل</string>
+    <string name="replay">إعادة اللعب</string>
+    <string name="quit_to_hub">خروج للقائمة</string>
+    <string name="got_it">حسناً</string>
+    <string name="resume">استئناف</string>
+    <string name="later">لاحقاً</string>
+    <string name="update_available">تحديث متاح</string>
+    <string name="update_msg">يتوفر إصدار جديد من Brainy Arcade مع المزيد من ألغاز المنطق والأداء المحسن!</string>
+    <string name="update_now">التحديث الآن</string>
+    <string name="cat_logic">منطق</string>
+    <string name="cat_math">رياضيات وأرقام</string>
+    <string name="cat_spatial">الوعي المكاني</string>
+    <string name="cat_memory">تدريب الذاكرة</string>
+    <string name="cat_words">كلمات واستنتاج</string>
+    <string name="cat_strategy">إستراتيجية</string>
+    <string name="rate_title">تقييم Brainy Arcade</string>
+    <string name="rate_message">هل تستمتع باللعبة؟ يرجى تخصيص لحظة لتقييمنا على متجر Play!</string>
+    <string name="rate_now">تقييم الآن</string>
+    <string name="rate_later">لاحقاً</string>
+</resources>

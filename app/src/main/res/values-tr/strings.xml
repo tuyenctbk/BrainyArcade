@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Brainy Arcade</string>
+    <string name="hero_selection">Kahraman Seçimi</string>
+    <string name="recently_played">Son Oynananlar</string>
+    <string name="discover">KEŞFET</string>
+    <string name="my_records">REKORLARIM</string>
+    <string name="home">Ana Sayfa</string>
+    <string name="categories">Kategoriler</string>
+    <string name="select_level">Seviye Seç</string>
+    <string name="victory">ZAFER!</string>
+    <string name="game_over">OYUN BİTTİ</string>
+    <string name="restart">Yeniden Başlat</string>
+    <string name="replay">Tekrar Oyna</string>
+    <string name="quit_to_hub">Menüye Dön</string>
+    <string name="got_it">ANLADIM</string>
+    <string name="resume">Devam Et</string>
+    <string name="later">Sonra</string>
+    <string name="update_available">Güncelleme Mevcut</string>
+    <string name="update_msg">Brainy Arcade\'in yeni bir sürümü daha fazla mantık bulmacası ve geliştirilmiş performans ile hazır!</string>
+    <string name="update_now">Şimdi Güncelle</string>
+    <string name="cat_logic">Mantık</string>
+    <string name="cat_math">Matematik &amp; Sayılar</string>
+    <string name="cat_spatial">Uzamsal Algı</string>
+    <string name="cat_memory">Hafıza Eğitimi</string>
+    <string name="cat_words">Kelimeler &amp; Çıkarım</string>
+    <string name="cat_strategy">Strateji</string>
+    <string name="rate_title">Brainy Arcade\'i Değerlendir</string>
+    <string name="rate_message">Oyunu beğendiniz mi? Lütfen Play Store\'da bizi değerlendirmek için bir dakikanızı ayırın!</string>
+    <string name="rate_now">Şimdi Değerlendir</string>
+    <string name="rate_later">Sonra</string>
+</resources>

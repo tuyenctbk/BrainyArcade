@@ -1,0 +1,27 @@
+# Built artifacts
+bin/
+gen/
+out/
+build/
+app/build/
+.gradle/
+.kotlin/
+
+# IDE specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Local configuration and keys
+local.properties
+common_release_key.jks
+*.jks
+*.keystore
+
+# Firebase configuration
+app/google-services.json
+
+# OS files
+.DS_Store
+Thumbs.db

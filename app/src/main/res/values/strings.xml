@@ -1,0 +1,181 @@
+<resources>
+    <string name="app_name">Brainy Arcade</string>
+    <string name="hero_selection">Hero Selection</string>
+    <string name="recently_played">Recently Played</string>
+    <string name="featured_challenges">Featured Challenges</string>
+    <string name="challenge_of_the_day">Challenge of the Day</string>
+    <string name="discover">DISCOVER</string>
+    <string name="my_records">MY RECORDS</string>
+    <string name="home">Home</string>
+    <string name="categories">Categories</string>
+    <string name="select_level">Select Level</string>
+    <string name="daily">DAILY</string>
+
+    <!-- Common Game UI -->
+    <string name="label_score">SCORE: %s</string>
+    <string name="label_time">TIME: %s</string>
+    <string name="label_moves">MOVES: %s</string>
+    <string name="label_best">BEST: %s</string>
+    <string name="label_best_time">BEST TIME: %s</string>
+    <string name="label_new_best">NEW BEST!</string>
+    <string name="label_level">LEVEL %d</string>
+    <string name="victory">VICTORY!</string>
+    <string name="victory_msg">Challenge complete! Result: %s</string>
+    <string name="restart">Restart</string>
+    <string name="replay">Replay</string>
+    <string name="game_over">GAME OVER</string>
+    <string name="better_luck">Better luck next time!</string>
+    <string name="how_to_play_title">HOW TO PLAY</string>
+    <string name="quit_to_hub">Quit to Hub</string>
+    <string name="got_it">GOT IT</string>
+    <string name="hub">Hub</string>
+    <string name="game_menu">Game Menu</string>
+
+    <!-- Category Names -->
+    <string name="cat_logic">Logic</string>
+    <string name="cat_math">Math &amp; Numbers</string>
+    <string name="cat_spatial">Spatial Awareness</string>
+    <string name="cat_memory">Memory Training</string>
+    <string name="cat_words">Words &amp; Deduction</string>
+    <string name="cat_strategy">Strategy</string>
+
+    <!-- Game Specific Strings -->
+    <string name="game_sudoku_title">Sudoku</string>
+    <string name="game_sudoku_desc">Standard 9x9 logic puzzle.</string>
+    <string name="game_sudoku_instr">Fill the grid so every row, column, and 3x3 box contains digits 1-9 without repetition. USE D-PAD TO NAVIGATE AND NUMBER KEYS TO FILL.</string>
+
+    <string name="game_2048_title">2048</string>
+    <string name="game_2048_desc">Merge tiles to reach 2048.</string>
+    <string name="game_2048_instr">USE D-PAD OR SWIPE TO SLIDE ALL TILES. Identical numbers merge when they touch. Plan your moves to keep the board clear!</string>
+
+    <string name="game_minesweeper_title">Minesweeper</string>
+    <string name="game_minesweeper_desc">Clear tiles without hitting mines.</string>
+    <string name="game_minesweeper_instr">Numbers show how many mines are touching that square. USE D-PAD TO SELECT, ENTER TO REVEAL, AND SPACE TO FLAG MINES.</string>
+
+    <string name="game_wordle_title">Wordle</string>
+    <string name="game_wordle_desc">Guess the secret 5-letter word.</string>
+    <string name="game_wordle_instr">Guess the hidden word in 6 tries. GREEN: Correct letter &amp; spot. YELLOW: Correct letter, wrong spot. GRAY: Letter not in word. TYPE LETTERS AND PRESS ENTER.</string>
+
+    <string name="game_chess_title">Chess Tactics</string>
+    <string name="game_chess_desc">Find the winning move.</string>
+    <string name="game_chess_instr">Analyze the board and identify the best sequence of moves to achieve mate or gain advantage. USE D-PAD TO SELECT PIECES.</string>
+
+    <string name="game_hanoi_title">Tower of Hanoi</string>
+    <string name="game_hanoi_desc">Move disks to the third peg.</string>
+    <string name="game_hanoi_instr">Move all disks to the third peg. You can only move one disk at a time and cannot place a larger disk on a smaller one. USE D-PAD TO SELECT PEGS.</string>
+
+    <string name="game_mastermind_title">Mastermind</string>
+    <string name="game_mastermind_desc">Crack the secret color code.</string>
+    <string name="game_mastermind_instr">Deduce the color sequence. White: Correct color. Black: Correct color &amp; spot. USE D-PAD UP/DOWN TO CHANGE COLORS.</string>
+
+    <string name="game_reversi_title">Reversi</string>
+    <string name="game_reversi_desc">Trap and flip opponent disks.</string>
+    <string name="game_reversi_instr">Trap opponent pieces between yours to flip them to your color. Most disks at the end wins. USE D-PAD AND ENTER TO PLACE.</string>
+
+    <string name="game_nonogram_title">Nonograms</string>
+    <string name="game_nonogram_desc">Reveal hidden pixel pictures.</string>
+    <string name="game_nonogram_instr">Fill cells based on number clues to reveal a hidden image. USE D-PAD TO SELECT, ENTER TO FILL, AND SPACE TO MARK.</string>
+
+    <string name="game_sliding_title">15-Puzzle</string>
+    <string name="game_sliding_desc">Order numbered tiles sequentially.</string>
+    <string name="game_sliding_instr">Slide numbered tiles into the empty space to arrange them from 1 to 15. USE D-PAD TO SLIDE TILES.</string>
+
+    <string name="game_sokoban_title">Sokoban</string>
+    <string name="game_sokoban_desc">Push crates to target locations.</string>
+    <string name="game_sokoban_instr">Push all crates onto the target markers. Crates can only be pushed, not pulled. USE D-PAD TO MOVE.</string>
+
+    <string name="game_simon_title">Simon Says</string>
+    <string name="game_simon_desc">Repeat the color sequence.</string>
+    <string name="game_simon_instr">Watch and repeat the sequence of flashing colors. Sequence gets longer each round. USE D-PAD TO SELECT COLORS.</string>
+
+    <string name="game_flow_title">Flow Free</string>
+    <string name="game_flow_desc">Connect dots of the same color.</string>
+    <string name="game_flow_instr">Connect dots of matching colors with lines. Fill the entire board without crossing lines. USE D-PAD TO DRAW PATHS.</string>
+
+    <string name="game_battleship_title">Battleship</string>
+    <string name="game_battleship_desc">Locate the hidden fleet.</string>
+    <string name="game_battleship_instr">Locate hidden ships using row/column clues. Ships cannot touch each other. ENTER: Ship, SPACE: Water.</string>
+
+    <string name="game_gomoku_title">Gomoku</string>
+    <string name="game_gomoku_desc">Connect five stones in a row.</string>
+    <string name="game_gomoku_instr">The first player to get five stones in a row horizontally, vertically, or diagonally wins. USE D-PAD AND ENTER.</string>
+
+    <string name="game_kakuro_title">Kakuro</string>
+    <string name="game_kakuro_desc">Math version of crosswords.</string>
+    <string name="game_kakuro_instr">Fill empty cells with digits 1-9 so sums match clues. No digit can repeat in a sequence. USE D-PAD AND NUMBERS.</string>
+
+    <string name="game_bridges_title">Bridges</string>
+    <string name="game_bridges_desc">Connect islands with bridges.</string>
+    <string name="game_bridges_instr">Connect islands with bridges based on numeric clues. Bridges cannot cross. USE D-PAD AND ENTER TO DRAW.</string>
+
+    <string name="game_slitherlink_title">Slitherlink</string>
+    <string name="game_slitherlink_desc">Draw a single closed loop.</string>
+    <string name="game_slitherlink_instr">Connect dots to form a single loop. Numbers show how many edges of that cell are part of the loop. USE D-PAD AND ENTER.</string>
+
+    <string name="game_mahjong_title">Mahjong Solitaire</string>
+    <string name="game_mahjong_desc">Match and remove identical tiles.</string>
+    <string name="game_mahjong_instr">Remove pairs of identical free tiles. A tile is free if its top is clear and left or right side is open. USE TOUCH OR D-PAD.</string>
+
+    <string name="game_tangram_title">Tangram</string>
+    <string name="game_tangram_desc">Assemble pieces to fit a shape.</string>
+    <string name="game_tangram_instr">Arrange geometric pieces to fit the silhouette without overlapping. USE D-PAD TO SELECT AND ENTER TO ROTATE.</string>
+
+    <string name="game_kenken_title">KenKen</string>
+    <string name="game_kenken_desc">Math and logic grid puzzle.</string>
+    <string name="game_kenken_instr">Fill with 1-N. Cages must match target values using math operators. USE D-PAD AND NUMBER KEYS.</string>
+
+    <string name="game_nurikabe_title">Nurikabe</string>
+    <string name="game_nurikabe_desc">Form islands in a stream.</string>
+    <string name="game_nurikabe_instr">Create islands around numbers. Shaded cells form a single stream with no 2x2 blocks. USE D-PAD AND ENTER.</string>
+
+    <string name="game_akari_title">Akari (Light Up)</string>
+    <string name="game_akari_desc">Illuminate the grid with bulbs.</string>
+    <string name="game_akari_instr">Place lightbulbs to light all white cells. Bulbs can\'t see each other. Clues show adjacent bulbs. USE D-PAD AND ENTER.</string>
+
+    <string name="game_skyscraper_title">Skyscraper</string>
+    <string name="game_skyscraper_desc">Visibility-based grid puzzle.</string>
+    <string name="game_skyscraper_instr">Place buildings of heights 1-N. Edge clues show count of visible buildings. USE D-PAD AND NUMBER KEYS.</string>
+
+    <string name="game_starbattle_title">Star Battle</string>
+    <string name="game_starbattle_desc">Place stars in regions.</string>
+    <string name="game_starbattle_instr">Place stars so each row, column, and region has a specific count. Stars cannot touch. USE D-PAD AND ENTER.</string>
+
+    <!-- UI Strings -->
+    <string name="coming_soon_msg">%s coming soon!</string>
+    <string name="no_instr">No instructions available for this challenge.</string>
+    <!-- Game Hints -->
+    <string name="sudoku_hint">DPAD: SELECT  |  1-9: FILL  |  DEL: CLEAR</string>
+    <string name="game_2048_hint">SWIPE OR DPAD TO MOVE</string>
+    <string name="wordle_hint">TYPE LETTERS  |  ENTER: SUBMIT</string>
+    <string name="minesweeper_hint">DPAD: SELECT  |  ENTER: REVEAL  |  SPACE: FLAG</string>
+    <string name="flow_hint">CONNECT MATCHING COLORS</string>
+    <string name="nonogram_hint">DPAD: SELECT  |  ENTER: FILL  |  SPACE/X: MARK</string>
+    <string name="mahjong_hint">MATCH IDENTICAL FREE TILES</string>
+    <string name="sokoban_hint">DPAD: MOVE  |  PUSH CRATES TO GOALS</string>
+    <string name="chess_hint">FIND THE MATE IN ONE</string>
+    <string name="simon_hint">REPEAT THE COLOR SEQUENCE</string>
+    <string name="battleship_hint">ENTER: SHIP  |  SPACE: WATER  |  MATCH CLUES</string>
+    <string name="bridges_hint">DPAD: NAVIGATE  |  ENTER: START/END BRIDGE</string>
+    <string name="slitherlink_hint">DPAD: SELECT EDGE  |  ENTER: TOGGLE LINE</string>
+    <string name="gomoku_hint">DPAD: NAVIGATE  |  ENTER: PLACE STONE</string>
+    <string name="mastermind_hint">DPAD: SELECT  |  UP/DOWN: CHANGE COLOR</string>
+    <string name="hanoi_hint">DPAD: SELECT PEG  |  ENTER: PICK/PLACE DISK</string>
+    <string name="reversi_hint">DPAD: SELECT  |  ENTER: PLACE DISK</string>
+    <string name="sliding_hint">DPAD: SLIDE TILES TO EMPTY SPACE</string>
+    <string name="kakuro_hint">DPAD: SELECT  |  1-9: FILL  |  DEL: CLEAR</string>
+    <string name="kenken_hint">DPAD: SELECT  |  1-N: FILL  |  MATCH CAGES</string>
+    <string name="tangram_hint">DPAD: SELECT PIECE  |  ENTER: ROTATE</string>
+    <string name="starbattle_hint">DPAD: NAVIGATE  |  ENTER: PLACE STAR</string>
+    <string name="skyscraper_hint">DPAD: SELECT  |  1-N: HEIGHT  |  MATCH VISIBILITY</string>
+    <string name="akari_hint">DPAD: NAVIGATE  |  ENTER: PLACE BULB</string>
+    <string name="nurikabe_hint">DPAD: NAVIGATE  |  ENTER: SHADE CELL</string>
+    <string name="update_available">Update Available</string>
+    <string name="update_msg">A new version of Brainy Arcade is available with more logic puzzles and improved performance!</string>
+    <string name="update_now">Update Now</string>
+    <string name="later">Later</string>
+    <string name="resume">Resume</string>
+    <string name="rate_title">Rate Brainy Arcade</string>
+    <string name="rate_message">Enjoying the game? Please take a moment to rate us on the Play Store!</string>
+    <string name="rate_now">Rate Now</string>
+    <string name="rate_later">Later</string>
+</resources>

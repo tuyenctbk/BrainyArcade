@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Brainy Arcade</string>
+    <string name="hero_selection">Selezione Eroe</string>
+    <string name="recently_played">Giocati di Recente</string>
+    <string name="discover">SCOPRI</string>
+    <string name="my_records">I MIEI RECORD</string>
+    <string name="home">Home</string>
+    <string name="categories">Categorie</string>
+    <string name="select_level">Seleziona Livello</string>
+    <string name="victory">VITTORIA!</string>
+    <string name="game_over">GAME OVER</string>
+    <string name="restart">Riavvia</string>
+    <string name="replay">Rigioca</string>
+    <string name="quit_to_hub">Torna al Menu</string>
+    <string name="got_it">CAPITO</string>
+    <string name="resume">Riprendi</string>
+    <string name="later">Più tardi</string>
+    <string name="update_available">Aggiornamento Disponibile</string>
+    <string name="update_msg">È disponibile una nuova versione di Brainy Arcade con più puzzle logici e prestazioni migliori!</string>
+    <string name="update_now">Aggiorna Ora</string>
+    <string name="cat_logic">Logica</string>
+    <string name="cat_math">Matematica e Numeri</string>
+    <string name="cat_spatial">Spazio e Orientamento</string>
+    <string name="cat_memory">Allenamento Memoria</string>
+    <string name="cat_words">Parole e Deduzione</string>
+    <string name="cat_strategy">Strategia</string>
+    <string name="rate_title">Valuta Brainy Arcade</string>
+    <string name="rate_message">Ti piace il gioco? Per favore, dedica un momento a valutarci sul Play Store!</string>
+    <string name="rate_now">Valuta Ora</string>
+    <string name="rate_later">Più tardi</string>
+</resources>

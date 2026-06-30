@@ -1,0 +1,301 @@
+<en-US>
+App Name: BrainyArcade
+Short Description: Collection of 50 logic puzzles for Android TV, Mobile, and Tablet.
+Full Description:
+Challenge your mind with BrainyArcade, the ultimate logic game hub designed for Android TV, Mobile, and Tablet. Explore a curated collection of 50 classic and modern logic puzzles designed to train your memory, spatial reasoning, and deduction skills.
+
+Puzzles Include:
+- Classic Logic: Lights Out, Mastermind, Reversi, and Peg Solitaire.
+- Math & Numbers: Sudoku, 2048, and Kakuro.
+- Spatial Reasoning: Nonograms, Bridges, and Sliding Puzzles.
+- Strategy & Deduction: Minesweeper, Battleship, and Chess.
+
+Key Features:
+- Unified Input Support: Native D-pad support for Android TV, touch support for mobile/tablet, and rotary support for Android Auto.
+- Infinite Replayability: Procedural level generation ensures a unique challenge every time.
+- Cognitive Classification: Track your progress across different brain-training categories.
+- Room DB Persistence: Save your high scores, statistics, and unlocked achievements locally.
+- Minimalist Canvas UI: Clean, high-performance rendering optimized for TV screens and low-end hardware.
+
+Keep your brain sharp and test your puzzle-solving skills with BrainyArcade!
+</en-US>
+
+<es-ES>
+App Name: BrainyArcade
+Short Description: Colección de 50 acertijos lógicos para Android TV, móvil y tableta.
+Full Description:
+Desafía tu mente con BrainyArcade, el centro de juegos de lógica definitivo para Android TV, móvil y tableta. Explora una colección seleccionada de 50 rompecabezas lógicos diseñados para entrenar tu memoria, razonamiento espacial y deducción.
+
+Los juegos incluyen:
+- Lógica clásica: Lights Out, Mastermind, Reversi y Peg Solitaire.
+- Matemáticas y números: Sudoku, 2048 y Kakuro.
+- Razonamiento espacial: Nonogramas, Puentes y Rompecabezas deslizantes.
+- Estrategia y deducción: Buscaminas, Batalla naval y Ajedrez.
+
+Características principales:
+- Control unificado: Soporte nativo para D-pad en Android TV, control táctil para móviles y soporte rotatorio para Android Auto.
+- Jugabilidad infinita: La generación procedimental de niveles asegura un desafío único en cada partida.
+- Clasificación cognitiva: Sigue tu progreso en diferentes categorías de entrenamiento cerebral.
+- Puntuaciones locales: Guarda tus récords, estadísticas y logros desbloqueados.
+- Interfaz fluida y minimalista: Optimizado para pantallas de TV y rendimiento de alto nivel.
+</es-ES>
+
+<ja-JP>
+App Name: BrainyArcade
+Short Description: Android TV、スマホ、タブレット向けの50の論理パズルコレクション。
+Full Description:
+Android TV、スマートフォン、タブレット向けに設計された究極のロジックゲームハブであるBrainyArcadeで、あなたの脳に挑戦しましょう。記憶力、空間認識能力、推論力を鍛えるために厳選された50のクラシックおよびモダンな論理パズルのコレクションを体験してください。
+
+収録ゲーム：
+- 定番パズル：Lights Out、Mastermind、Reversi、Peg Solitaire。
+- 数学＆数字：Sudoku、2048、Kakuro。
+- 空間認識：Nonograms、Bridges、スライディングパズル。
+- 戦略＆推理：マインスイーパ、バトルシップ、チェス。
+
+主な特徴：
+- 統一された入力サポート：Android TV向けD-pad、モバイル/タブレット向けタッチ操作、Android Auto向けロータリーダイヤルに対応。
+- 无限の再プレイ性：自動生成されるステージにより、毎回新しい挑戦を楽しめます。
+- 脳トレ分類：異なる認知トレーニングカテゴリの進捗状況を追跡できます。
+- ローカル保存：ハイスコア、統計情報、実績をローカルに保存します。
+- ミニマルなUI：テレビ画面に最適化された、軽快でパフォーマンスの高い描画。
+</ja-JP>
+
+<fr-FR>
+App Name: BrainyArcade
+Short Description: Collection de 50 puzzles logiques pour Android TV, mobile et tablette.
+Full Description:
+Défiez votre esprit avec BrainyArcade, le centre ultime de jeux de logique conçu pour Android TV, mobile et tablette. Découvrez une collection de 50 puzzles logiques pour entraîner votre mémoire, votre raisonnement spatial et vos capacités de déduction.
+
+Les jeux incluent :
+- Logique classique : Lights Out, Mastermind, Reversi et Peg Solitaire.
+- Maths & Nombres : Sudoku, 2048 et Kakuro.
+- Raisonnement spatial : Nonogrammes, Ponts et Puzzles coulissants.
+- Stratégie & Déduction : Démineur, Bataille navale et Échecs.
+
+Caractéristiques principales :
+- Commandes unifiées : Support natif du D-pad pour Android TV, commandes tactiles pour mobile/tablette et rotatives pour Android Auto.
+- Rejouabilité infinie : La génération procédurale de niveaux garantit un défi unique à chaque fois.
+- Classification cognitive : Suivez vos progrès dans différentes catégories d'entraînement cérébral.
+- Sauvegardes locales : Enregistrez vos meilleurs scores, vos statistiques et vos succès déverrouillés.
+- Interface minimaliste : Rendu fluide et performant, optimisé pour les écrans de télévision.
+</fr-FR>
+
+<hi-IN>
+App Name: BrainyArcade
+Short Description: Android TV, मोबाइल और टैबलेट के लिए 50 लॉजिक पहेलियों का संग्रह।
+Full Description:
+BrainyArcade के साथ अपने दिमाग को चुनौती दें, जो Android TV, मोबाइल और टैबलेट के लिए एक बेहतरीन लॉजिक गेम हब है। अपनी याददाश्त, स्थानिक तर्क और कटौती कौशल को प्रशिक्षित करने के लिए डिज़ाइन की गई 50 क्लासिक और आधुनिक लॉजिक पहेलियों के संग्रह का अन्वेषण करें।
+
+पहेलियाँ शामिल हैं:
+- क्लासिक लॉजिक: Lights Out, Mastermind, Reversi, और Peg Solitaire।
+- गणित और संख्याएं: Sudoku, 2048, और Kakuro।
+- स्थानिक तर्क: Nonograms, Bridges, और Sliding Puzzles।
+- रणनीति और कटौती: Minesweeper, Battleship, और Chess।
+
+मुख्य विशेषताएं:
+- एकीकृत इनपुट समर्थन: Android TV के लिए मूल डी-पैड समर्थन, मोबाइल/टैबलेट के लिए स्पर्श समर्थन और Android Auto के लिए रोटरी समर्थन।
+- अनंत पुनरावृत्ति: प्रक्रियात्मक स्तर पीढ़ी हर बार एक अनूठी चुनौती सुनिश्चित करती है।
+- संज्ञानात्मक वर्गीकरण: विभिन्न मस्तिष्क-प्रशिक्षण श्रेणियों में अपनी प्रगति को ट्रैक करें।
+- स्कोर संरक्षण: अपने उच्च स्कोर, आंकड़े और उपलब्धियों को स्थानीय रूप से सहेजें।
+- न्यूनतम कैनवास यूआई: टीवी स्क्रीन के लिए अनुकूलित स्वच्छ, उच्च प्रदर्शन प्रतिपादन।
+</hi-IN>
+
+<vi>
+App Name: BrainyArcade
+Short Description: Bộ sưu tập 50 trò chơi trí tuệ cho Android TV, Di động và Máy tính bảng.
+Full Description:
+Thử thách trí não của bạn với BrainyArcade, trung tâm trò chơi logic đỉnh cao được thiết kế cho Android TV, Di động và Máy tính bảng. Khám phá bộ sưu tập 50 câu đố logic cổ điển và hiện đại để rèn luyện trí nhớ, tư duy không gian và khả năng lập luận của bạn.
+
+Các câu đố bao gồm:
+- Logic cổ điển: Lights Out, Mastermind, Reversi và Peg Solitaire.
+- Toán & Số học: Sudoku, 2048 và Kakuro.
+- Tư duy không gian: Nonogram, Cầu nối và Trò chơi xếp hình trượt.
+- Chiến thuật & Lập luận: Dò mìn, Bắn tàu và Cờ vua.
+
+Các tính năng chính:
+- Hỗ trợ nhập liệu hợp nhất: Hỗ trợ D-pad gốc cho Android TV, điều khiển cảm ứng cho di động/máy tính bảng và điều khiển xoay cho Android Auto.
+- Khả năng chơi lại vô tận: Tạo cấp độ ngẫu nhiên đảm bảo thử thách độc đáo mỗi khi chơi.
+- Phân loại nhận thức: Theo dõi tiến trình của bạn trên các danh mục rèn luyện não bộ khác nhau.
+- Lưu trữ cục bộ: Lưu điểm số cao nhất, số liệu thống kê và thành tích đã mở khóa.
+- Giao diện tối giản: Hiển thị mượt mà hiệu suất cao được tối ưu hóa cho màn hình TV.
+</vi>
+
+<zh-CN>
+App Name: BrainyArcade
+Short Description: 适用于 Android TV、手机和平板电脑的 50 款逻辑谜题合集。
+Full Description:
+通过 BrainyArcade 挑战您的思维，这是一款专为 Android TV、手机和平板电脑设计的终极逻辑游戏中心。探索精选的 50 款经典和现代逻辑谜题，旨在训练您的记忆力、空间推理和推理能力。
+
+包含谜题：
+- 经典逻辑：Lights Out、Mastermind、Reversi 和 Peg Solitaire。
+- 数学与数字：Sudoku、2048 和 Kakuro。
+- 空间推理：Nonograms、Bridges 和滑动益智游戏。
+- 策略与推理：扫雷、海战棋和国际象棋。
+
+主要特征：
+- 统一输入支持：针对 Android TV 的原生 D-pad 支持、针对手机/平板电脑的触摸支持以及针对 Android Auto 的旋钮支持。
+- 无限可重玩性：程序化关卡生成确保每次都有独特的挑战。
+- 认知分类：跟踪您在不同大脑训练类别中的进度。
+- Room 数据库存储：在本地保存您的高分、统计数据和解锁的成就。
+- 极简 Canvas UI：针对电视屏幕优化的清爽、高性能渲染。
+</zh-CN>
+
+<ko-KR>
+App Name: BrainyArcade
+Short Description: Android TV, 모바일, 태블릿을 위한 50가지 논리 퍼즐 컬렉션.
+Full Description:
+Android TV, 모바일, 태블릿용 궁극의 논리 게임 허브인 BrainyArcade로 두뇌를 단련해 보세요. 기억력, 공간 지각 능력, 추론 능력을 훈련할 수 있도록 엄선된 50가지의 클래식 및 현대 논리 퍼즐 컬렉션을 제공합니다.
+
+포함된 게임:
+- 클래식 논리 퍼즐: Lights Out, Mastermind, Reversi, Peg Solitaire.
+- 수학 및 숫자 퍼즐: Sudoku, 2048, Kakuro.
+- 공간 지각 퍼즐: Nonograms, Bridges, Sliding Puzzles.
+- 전략 및 추론 퍼즐: Minesweeper, Battleship, Chess.
+
+주요 특징:
+- 통합 입력 지원: Android TV용 기본 D-pad, 모바일/태블릿용 터치 제어, Android Auto용 로터리 조작 지원.
+- 무한한 플레이 가치: 단계별 무작위 생성을 통해 매번 새로운 도전을 즐길 수 있습니다.
+- 인지 영역 분류: 두뇌 훈련 카테고리별로 본인의 학습 진행 상태를 추적해 보세요.
+- 로컬 기록 보관: 높은 점수, 통계, 잠금 해제된 업적을 기기에 로컬로 저장합니다.
+- 미니멀 디자인: TV 화면에 최적화된 고성능의 깔끔한 캔버스 그래픽.
+</ko-KR>
+
+<de-DE>
+App Name: BrainyArcade
+Short Description: Sammlung von 50 Logikrätseln für Android TV, Smartphone und Tablet.
+Full Description:
+Fordern Sie Ihren Geist heraus mit BrainyArcade, der ultimativen Sammlung von Logikspielen für Android TV, Smartphone und Tablet. Entdecken Sie 50 handverlesene Logikrätsel, die Ihr Gedächtnis, Ihr räumliches Denken und Ihre Kombinationsgabe trainieren.
+
+Enthaltene Rätsel:
+- Klassische Logik: Lights Out, Mastermind, Reversi und Peg Solitaire.
+- Mathe & Zahlen: Sudoku, 2048 und Kakuro.
+- Räumliches Denken: Nonogramme, Brücken und Schiebepuzzles.
+- Strategie & Deduktion: Minesweeper, Schiffe versenken und Schach.
+
+Hauptmerkmale:
+- Einheitliche Eingabe: Native D-Pad-Unterstützung für Android TV, Touch-Unterstützung für Mobilgeräte und Drehknopf-Unterstützung für Android Auto.
+- Unbegrenzte Wiederholbarkeit: Die prozedurale Levelgenerierung sorgt jedes Mal für eine neue Herausforderung.
+- Kognitive Klassifizierung: Verfolgen Sie Ihre Fortschritte in verschiedenen Gehirntraining-Kategorien.
+- Lokale Speicherstände: Sichern Sie Highscores, Statistiken und Erfolge direkt auf Ihrem Gerät.
+- Minimalistische Benutzeroberfläche: Schnelle und flüssige Darstellung, optimiert für Fernseher.
+</de-DE>
+
+<pt-PT>
+App Name: BrainyArcade
+Short Description: Coleção de 50 quebra-cabeças lógicos para Android TV, telemóvel e tablet.
+Full Description:
+Desafie a sua mente com o BrainyArcade, o centro de jogos de lógica definitivo para Android TV, telemóveis e tablets. Explore uma coleção de 50 quebra-cabeças lógicos selecionados para treinar a sua memória, raciocínio espacial e dedução.
+
+Os jogos incluem:
+- Lógica Clássica: Lights Out, Mastermind, Reversi e Peg Solitaire.
+- Matemática e Números: Sudoku, 2048 e Kakuro.
+- Raciocínio Espacial: Nonogramas, Pontes e Quebra-cabeças deslizantes.
+- Estratégia e Dedução: Campo minado, Batalha naval e Xadrez.
+
+Características principais:
+- Controlo unificado: Suporte nativo de D-pad para Android TV, controlos táteis para telemóveis e suporte rotativo para Android Auto.
+- Jogabilidade infinita: A geração procedimental de níveis garante um desafio único em cada partida.
+- Classificação cognitiva: Acompanhe o seu progresso em diferentes áreas de treino cerebral.
+- Recordes locais: Salve as suas pontuações mais altas, estatísticas e conquistas desbloqueadas.
+- Interface minimalista: Renderização suave e rápida, otimizada para ecrãs de TV.
+</pt-PT>
+
+<ar>
+App Name: BrainyArcade
+Short Description: مجموعة من 50 لغزاً منطقياً لأجهزة Android TV والهواتف والأجهزة اللوحية.
+Full Description:
+تحدّ عقلك مع BrainyArcade، مركز ألعاب المنطق النهائي المصمم لأجهزة Android TV والهواتف والأجهزة اللوحية. استكشف مجموعة مختارة من 50 لغزاً منطقياً كلاسيكياً وحديثاً مصممة لتدريب ذاكرتك وتفكيرك المكاني ومهارات الاستنتاج لديك.
+
+تشمل الألغاز:
+- المنطق الكلاسيكي: Lights Out وMastermind وReversi وPeg Solitaire.
+- الرياضيات والأرقام: Sudoku و2048 وKakuro.
+- التفكير المكاني: Nonograms وBridges وSliding Puzzles.
+- الاستراتيجية والاستنتاج: Minesweeper وBattleship والشطرنج.
+
+الميزات الرئيسية:
+- دعم الإدخال الموحد: دعم D-pad الأصلي لأجهزة Android TV، ودعم اللمس للهواتف/الأجهزة اللوحية، ودعم التحكم الدوار لأجهزة Android Auto.
+- إمكانية إعادة لعب غير محدودة: يضمن إنشاء المستويات الإجرائي تحدياً فريداً في كل مرة.
+- التصنيف المعرفي: تتبع تقدمك عبر فئات تدريب الدماغ المختلفة.
+- حفظ الأرقام القياسية: احفظ أعلى درجاتك وإحصاءاتك وإنجازاتك محلياً.
+- واجهة مستعمل مبسطة: عرض عالي الأداء ومحسن لشاشات التلفزيون والأجهزة ذات المواصفات المنخفضة.
+</ar>
+
+<it-IT>
+App Name: BrainyArcade
+Short Description: Collezione di 50 rompicapi logici per Android TV, mobile e tablet.
+Full Description:
+Sfida la tua mente con BrainyArcade, l'hub definitivo di giochi di logica per Android TV, dispositivi mobili e tablet. Scopri una selezione di 50 rompicapi logici progettati per allenare la memoria, il ragionamento spaziale e la deduzione.
+
+I giochi includono:
+- Logica classica: Lights Out, Mastermind, Reversi e Peg Solitaire.
+- Matematica e numeri: Sudoku, 2048 e Kakuro.
+- Ragionamento spaziale: Nonogrammi, Ponti e Puzzle scorrevoli.
+- Strategia e deduzione: Campo minato, Battaglia navale e Scacchi.
+
+Caratteristiche principali:
+- Supporto input unificato: Supporto nativo D-pad per Android TV, touch per mobile/tablet e manopola rotante per Android Auto.
+- Rigiocabilità infinita: La generazione procedurale dei livelli assicura una sfida unica ogni volta.
+- Classificazione cognitiva: Monitora i tuoi progressi in diverse categorie di allenamento cerebrale.
+- Salvataggio dei punteggi: Salva record, statistiche e obiettivi sbloccati localmente.
+- Interfaccia minimalista: Rendering fluido ad alte prestazioni, ottimizzato per schermi TV.
+</it-IT>
+
+<ru-RU>
+App Name: BrainyArcade
+Short Description: Коллекция из 50 логических головоломок для Android TV, телефонов и планшетов.
+Full Description:
+Бросьте вызов своему разуму в BrainyArcade — уникальном сборнике логических игр для Android TV, мобильных телефонов и планшетов. Откройте для себя 50 тщательно подобранных головоломок для развития памяти, пространственного мышления и логики.
+
+В сборник входят:
+- Классическая логика: Lights Out, Mastermind, Reversi и Peg Solitaire.
+- Математика и числа: Судоку, 2048 и Какуро.
+- Пространственное мышление: Нонограммы, Мосты и Пятнашки.
+- Стратегия и дедукция: Сапер, Морской бой и Шахматы.
+
+Основные особенности:
+- Универсальное управление: Полная поддержка пульта (D-pad) для Android TV, сенсорное управление для мобильных и поворотного переключателя для Android Auto.
+- Бесконечное прохождение: Процедурная генерация гарантирует уникальные уровни каждый раз.
+- Когнитивные категории: Отслеживайте свой прогресс по разным направлениям тренировки мозга.
+- Сохранение рекордов: Локальное сохранение лучших результатов, статистики и достижений.
+- Минималистичный дизайн: Плавный и быстрый интерфейс, оптимизированный под экраны ТВ.
+</ru-RU>
+
+<id>
+App Name: BrainyArcade
+Short Description: Koleksi 50 teka-teki logika untuk Android TV, Ponsel, dan Tablet.
+Full Description:
+Tantang pikiran Anda dengan BrainyArcade, pusat game logika terbaik yang dirancang untuk Android TV, Ponsel, dan Tablet. Temukan koleksi 50 teka-teki logika klasik dan modern yang dirancang untuk melatih memori, penalaran spasial, dan keterampilan deduksi Anda.
+
+Teka-teki Termasuk:
+- Logika Klasik: Lights Out, Mastermind, Reversi, dan Peg Solitaire.
+- Matematika & Angka: Sudoku, 2048, dan Kakuro.
+- Penalaran Spasial: Nonogram, Jembatan, dan Teka-teki Geser.
+- Strategi & Deduksi: Minesweeper, Battleship, dan Catur.
+
+Fitur Utama:
+- Dukungan Input Terpadu: Dukungan D-pad asli untuk Android TV, dukungan sentuh untuk ponsel/tablet, dan dukungan putar untuk Android Auto.
+- Putar Ulang Tanpa Batas: Pembuatan level prosedural memastikan tantangan unik setiap saat.
+- Klasifikasi Kognitif: Lacak kemajuan Anda di berbagai kategori pelatihan otak.
+- Room DB Persistence: Simpan skor tinggi, statistik, dan pencapaian Anda secara lokal.
+- UI Kanvas Minimalis: Rendering berkinerja tinggi yang dioptimalkan untuk layar TV.
+</id>
+
+<tr-TR>
+App Name: BrainyArcade
+Short Description: Android TV, Mobil ve Tablet için 50 mantık bulmacası koleksiyonu.
+Full Description:
+Android TV, Mobil ve Tablet için tasarlanmış en popüler mantık oyunları merkezi BrainyArcade ile zihninize meydan okuyun. Hafızanızı, uzamsal akıl yürütme ve tümdengelim becerilerinizi eğitmek için özenle seçilmiş 50 klasik ve modern mantık bulmacasını keşfedin.
+
+İçerdiği Bulmacalar:
+- Klasik Mantık: Lights Out, Mastermind, Reversi ve Peg Solitaire.
+- Matematik ve Sayılar: Sudoku, 2048 ve Kakuro.
+- Uzamsal Akıl Yürütme: Nonogramlar, Köprüler ve Kaydırma Bulmacaları.
+- Strateji ve Tümdengelim: Mayın Tarlası, Amiral Battı ve Satranç.
+
+Ana Özellikler:
+- Birleşik Giriş Desteği: Android TV için yerel D-pad desteği, mobil/tablet için dokunmatik desteği ve Android Auto için döner kadran desteği.
+- Sonsuz Yeniden Oynanabilirlik: Prosedürel seviye oluşturma, her seferinde benzersiz bir meydan okuma sağlar.
+- Bilişsel Sınıflandırma: Farklı beyin jimnastiği kategorilerindeki ilerlemeklerinizi takip edin.
+- Yerel Kayıt: Yüksek puanlarınızı, istatistiklerinizi ve başarılarınızı cihazınızda saklayın.
+- Minimalist Tasarım: TV ekranları ve düşük donanımlar için optimize edilmiş hızlı arayüz.
+</tr-TR>

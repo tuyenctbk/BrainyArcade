@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.BrainyArcade" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/neon_cyan</item>
+        <item name="android:windowBackground">@drawable/bg_app_gradient</item>
+        <item name="android:statusBarColor">@color/background_pitch_black</item>
+        <item name="colorAccent">@color/neon_cyan</item>
+        <item name="android:alertDialogTheme">@style/Theme.BrainyArcade.Dialog</item>
+    </style>
+
+    <style name="Theme.BrainyArcade.Dialog" parent="Theme.Material3.Dark.Dialog">
+        <item name="android:windowBackground">@color/background_card</item>
+        <item name="android:textColor">@color/text_white</item>
+        <item name="colorAccent">@color/neon_cyan</item>
+        <item name="colorPrimary">@color/neon_cyan</item>
+        <item name="android:textColorPrimary">@color/text_white</item>
+        <item name="android:textColorSecondary">@color/text_gray_light</item>
+        <item name="colorOnSurface">@color/text_white</item>
+        <item name="android:textColorAlertDialogListItem">@color/text_white</item>
+        <item name="textColorAlertDialogListItem">@color/text_white</item>
+    </style>
+</resources>

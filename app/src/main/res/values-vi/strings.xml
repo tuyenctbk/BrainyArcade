@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Brainy Arcade</string>
+    <string name="hero_selection">Chọn Anh Hùng</string>
+    <string name="recently_played">Chơi Gần Đây</string>
+    <string name="discover">KHÁM PHÁ</string>
+    <string name="my_records">KỶ LỤC CỦA TÔI</string>
+    <string name="home">Trang Chủ</string>
+    <string name="categories">Danh Mục</string>
+    <string name="select_level">Chọn Cấp Độ</string>
+    <string name="victory">CHIẾN THẮNG!</string>
+    <string name="game_over">TRÒ CHƠI KẾT THÚC</string>
+    <string name="restart">Chơi Lại</string>
+    <string name="replay">Chơi Lại</string>
+    <string name="quit_to_hub">Thoát ra Menu</string>
+    <string name="got_it">ĐÃ HIỂU</string>
+    <string name="resume">Tiếp Tục</string>
+    <string name="later">Để sau</string>
+    <string name="update_available">Có Bản Cập Nhật</string>
+    <string name="update_msg">Phiên bản mới của Brainy Arcade đã sẵn sàng với nhiều câu đố hơn và cải tiến hiệu năng!</string>
+    <string name="update_now">Cập Nhật Ngay</string>
+    <string name="cat_logic">Logic</string>
+    <string name="cat_math">Toán &amp; Con Số</string>
+    <string name="cat_spatial">Không Gian</string>
+    <string name="cat_memory">Rèn Luyện Trí Nhớ</string>
+    <string name="cat_words">Từ Vựng &amp; Suy Luận</string>
+    <string name="cat_strategy">Chiến Thuật</string>
+    <string name="rate_title">Đánh giá Brainy Arcade</string>
+    <string name="rate_message">Bạn thích trò chơi này chứ? Hãy dành chút thời gian đánh giá chúng tôi trên Play Store nhé!</string>
+    <string name="rate_now">Đánh Giá Ngay</string>
+    <string name="rate_later">Để sau</string>
+</resources>

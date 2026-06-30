@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Brainy Arcade</string>
+    <string name="hero_selection">选择英雄</string>
+    <string name="recently_played">最近玩过</string>
+    <string name="discover">发现</string>
+    <string name="my_records">我的记录</string>
+    <string name="home">首页</string>
+    <string name="categories">分类</string>
+    <string name="select_level">选择关卡</string>
+    <string name="victory">胜利！</string>
+    <string name="game_over">游戏结束</string>
+    <string name="restart">重新开始</string>
+    <string name="replay">重玩</string>
+    <string name="quit_to_hub">返回主页</string>
+    <string name="got_it">知道了</string>
+    <string name="resume">继续</string>
+    <string name="later">稍后</string>
+    <string name="update_available">发现新版本</string>
+    <string name="update_msg">Brainy Arcade 新版本已发布！带来更多逻辑谜题与性能提升。</string>
+    <string name="update_now">立即更新</string>
+    <string name="cat_logic">逻辑</string>
+    <string name="cat_math">数学与数字</string>
+    <string name="cat_spatial">空间感知</string>
+    <string name="cat_memory">记忆训练</string>
+    <string name="cat_words">文字与推理</string>
+    <string name="cat_strategy">策略</string>
+    <string name="rate_title">为 Brainy Arcade 评分</string>
+    <string name="rate_message">喜欢这款游戏吗？请花点时间在 Play 商店中给我们评分！</string>
+    <string name="rate_now">立即评分</string>
+    <string name="rate_later">稍后</string>
+</resources>

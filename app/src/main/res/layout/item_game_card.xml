@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_root"
+    android:layout_width="@dimen/card_width"
+    android:layout_height="@dimen/card_height"
+    android:layout_margin="@dimen/card_margin"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    app:cardBackgroundColor="@color/background_card"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="0dp"
+    android:clipChildren="false">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false">
+
+        <!-- Cinematic Background Pattern -->
+        <View
+            android:id="@+id/game_bg_gradient"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Parallax Accent Decoration -->
+        <ImageView
+            android:id="@+id/game_decoration"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:alpha="0.08"
+            android:contentDescription="@null" />
+
+        <!-- Central Game Icon - Larger and Elevated -->
+        <ImageView
+            android:id="@+id/game_banner"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_centerInParent="true"
+            android:alpha="0.7"
+            android:scaleType="fitCenter"
+            android:contentDescription="@null"
+            app:tint="@color/text_white" />
+
+        <!-- Premium Glassmorphism Overlay -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/gradient_banner_overlay_premium" />
+
+        <!-- Info Section -->
+        <LinearLayout
+            android:id="@+id/info_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:id="@+id/game_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_white"
+                android:textSize="26sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.01" />
+
+            <TextView
+                android:id="@+id/game_benefit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/neon_cyan"
+                android:textSize="11sp"
+                android:textAllCaps="true"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.12" />
+
+            <TextView
+                android:id="@+id/game_short_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_gray_light"
+                android:textSize="12sp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginTop="6dp"
+                android:alpha="0"
+                android:fontFamily="sans-serif-medium"
+                android:lineSpacingExtra="2dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/daily_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            android:background="@drawable/bg_daily_badge"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="@string/daily"
+            android:textColor="@color/text_white"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.05"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <!-- Focused State Glow & Border -->
+    <View
+        android:id="@+id/focus_border"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:background="@drawable/bg_focus_border_premium" />
+
+</androidx.cardview.widget.CardView>

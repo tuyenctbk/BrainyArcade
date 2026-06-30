@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Brainy Arcade</string>
+    <string name="hero_selection">Held Selectie</string>
+    <string name="recently_played">Kort Geleden Gespeeld</string>
+    <string name="discover">ONTDEK</string>
+    <string name="my_records">MIJN RECORDS</string>
+    <string name="home">Home</string>
+    <string name="categories">Categorieën</string>
+    <string name="select_level">Selecteer Niveau</string>
+    <string name="victory">OVERWINNING!</string>
+    <string name="game_over">GAME OVER</string>
+    <string name="restart">Herstarten</string>
+    <string name="replay">Opnieuw Spelen</string>
+    <string name="quit_to_hub">Naar Hub</string>
+    <string name="got_it">BEGREPEN</string>
+    <string name="resume">Hervatten</string>
+    <string name="later">Later</string>
+    <string name="update_available">Update Beschikbaar</string>
+    <string name="update_msg">Een nieuwe versie van Brainy Arcade is beschikbaar met meer logische puzzels en betere prestaties!</string>
+    <string name="update_now">Nu Updaten</string>
+    <string name="cat_logic">Logica</string>
+    <string name="cat_math">Wiskunde &amp; Getallen</string>
+    <string name="cat_spatial">Ruimtelijk Inzicht</string>
+    <string name="cat_memory">Geheugentraining</string>
+    <string name="cat_words">Woorden &amp; Deductie</string>
+    <string name="cat_strategy">Strategie</string>
+    <string name="rate_title">Brainy Arcade Beoordelen</string>
+    <string name="rate_message">Geniet je van het spel? Neem even de tijd om ons te beoordelen in de Play Store!</string>
+    <string name="rate_now">Nu Beoordelen</string>
+    <string name="rate_later">Later</string>
+</resources>

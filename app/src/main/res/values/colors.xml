@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_pitch_black">#050505</color>
+    <color name="background_deep_gray">#101010</color>
+    <color name="background_card">#181818</color>
+    <color name="background_card_focused">#2A2A2A</color>
+    <color name="neon_cyan">#00BCD4</color>
+    <color name="neon_cyan_glow">#4D00BCD4</color>
+    <color name="neon_cyan_transparent">#1A00BCD4</color>
+    <color name="netflix_red">#E50914</color>
+    <color name="netflix_red_glow">#4DE50914</color>
+    <color name="text_white">#F5F5F5</color>
+    <color name="text_gray_light">#A0A0A0</color>
+    <color name="text_gray_dark">#444444</color>
+    <color name="gold">#FFD700</color>
+
+    <!-- Premium Category Gradients -->
+    <color name="grad_logic_start">#0F172A</color>
+    <color name="grad_logic_mid">#1E293B</color>
+    <color name="grad_logic_end">#334155</color>
+
+    <color name="grad_math_start">#2E1065</color>
+    <color name="grad_math_mid">#4C1D95</color>
+    <color name="grad_math_end">#6D28D9</color>
+
+    <color name="grad_spatial_start">#064E3B</color>
+    <color name="grad_spatial_mid">#065F46</color>
+    <color name="grad_spatial_end">#059669</color>
+
+    <color name="grad_memory_start">#450A0A</color>
+    <color name="grad_memory_mid">#7F1D1D</color>
+    <color name="grad_memory_end">#B91C1C</color>
+
+    <color name="grad_words_start">#451A03</color>
+    <color name="grad_words_mid">#78350F</color>
+    <color name="grad_words_end">#B45309</color>
+
+    <color name="grad_strategy_start">#111827</color>
+    <color name="grad_strategy_mid">#1F2937</color>
+    <color name="grad_strategy_end">#374151</color>
+</resources>

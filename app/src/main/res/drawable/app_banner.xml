@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="180dp"
+    android:viewportWidth="320"
+    android:viewportHeight="180">
+
+    <!-- Deep Space Midnight Background Base -->
+    <path
+        android:pathData="M0,0h320v180H0V0z"
+        android:fillColor="#0D0E15" />
+
+    <!-- Radiant Ambient Neon Cyan Glow on Left -->
+    <path
+        android:pathData="M80,90m-70,0a70,70 0 1,1 140,0a70,70 0 1,1 -140,0"
+        android:fillColor="#0F00BCD4" />
+    <path
+        android:pathData="M80,90m-50,0a50,50 0 1,1 100,0a50,50 0 1,1 -100,0"
+        android:fillColor="#1500BCD4" />
+
+    <!-- cyber grid perspective lines (Horizontal/Vertical Grid lines) -->
+    <!-- Grid horizontal -->
+    <path
+        android:pathData="M0,30 L320,30 M0,60 L320,60 M0,90 L320,90 M0,120 L320,120 M0,150 L320,150"
+        android:strokeColor="#1F2336"
+        android:strokeWidth="1.0" />
+    <!-- Grid vertical -->
+    <path
+        android:pathData="M40,0 L40,180 M80,0 L80,180 M120,0 L120,180 M160,0 L160,180 M200,0 L200,180 M240,0 L240,180 M280,0 L280,180"
+        android:strokeColor="#1F2336"
+        android:strokeWidth="1.0" />
+
+    <!-- Neon Cyan Border Frame -->
+    <path
+        android:pathData="M15,15 L305,15 L305,165 L15,165 Z"
+        android:strokeColor="#00BCD4"
+        android:strokeWidth="2.5" />
+
+    <!-- Cyber Gold Geometric Accent Stripes (Right Side) -->
+    <path
+        android:pathData="M 305,15 L 255,15 L 290,165 L 305,165 Z"
+        android:fillColor="#1AFFEB3B" />
+    <path
+        android:pathData="M 285,15 L 275,15 L 240,165 L 250,165 Z"
+        android:fillColor="#FFEB3B" />
+    <path
+        android:pathData="M 270,15 L 265,15 L 230,165 L 235,165 Z"
+        android:fillColor="#00BCD4" />
+
+    <!-- Left Side: Game Controller Silhouette (with glowing brainwaves) -->
+    <!-- Brainwave outer neon cyan arc -->
+    <path
+        android:pathData="M48,74 C60,54 100,54 112,74"
+        android:strokeColor="#00BCD4"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M58,82 C68,67 92,67 102,82"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.8"
+        android:strokeLineCap="round" />
+    
+    <!-- Game controller body on Left -->
+    <path
+        android:pathData="M 48,86 L 112,86 C 122,86 127,92 125,100 L 119,126 C 117,132 111,137 104,137 L 56,137 C 49,137 43,132 41,126 L 35,100 C 33,92 38,86 48,86 Z"
+        android:fillColor="#151724"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3.0"
+        android:strokeLineJoin="round" />
+
+    <!-- D-pad (Left) -->
+    <path
+        android:pathData="M 52,111 h 16 v 5 h -16 z M 57,106 h 6 v 15 h -6 z"
+        android:fillColor="#00BCD4" />
+
+    <!-- Action Buttons (Right) -->
+    <path
+        android:pathData="M92,111m-4.5,0a4.5,4.5 0 1,1 9,0a4.5,4.5 0 1,1 -9,0"
+        android:fillColor="#00BCD4" />
+    <path
+        android:pathData="M104,102m-4.5,0a4.5,4.5 0 1,1 9,0a4.5,4.5 0 1,1 -9,0"
+        android:fillColor="#FFEB3B" />
+
+    <!-- Center joystick analog -->
+    <path
+        android:pathData="M80,114m-6,0a6,6 0 1,1 12,0a6,6 0 1,1 -12,0"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M80,114m-3,0a3,3 0 1,1 6,0a3,3 0 1,1 -6,0"
+        android:fillColor="#0D0E15" />
+
+    <!-- TV Logo Label Accent in Gold on Right Center -->
+    <path
+        android:pathData="M 175,65 L 180,65 L 180,95 L 175,95 Z"
+        android:fillColor="#FFEB3B" />
+    <!-- Sleek polygon backing for label -->
+    <path
+        android:pathData="M 190,65 L 290,65 L 280,95 L 180,95 Z"
+        android:fillColor="#1F2336"
+        android:strokeColor="#FFEB3B"
+        android:strokeWidth="1.5" />
+    <!-- Stylized pixel "TV" representation -->
+    <path
+        android:pathData="M 210,75 h 30 v 3 h -30 z M 225,78 h 5 v 10 h -5 z"
+        android:fillColor="#00BCD4" />
+</vector>

@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Brainy Arcade</string>
+    <string name="hero_selection">ヒーロー選択</string>
+    <string name="recently_played">最近プレイしたゲーム</string>
+    <string name="discover">発見</string>
+    <string name="my_records">マイレコード</string>
+    <string name="home">ホーム</string>
+    <string name="categories">カテゴリー</string>
+    <string name="select_level">レベル選択</string>
+    <string name="victory">勝利！</string>
+    <string name="game_over">ゲームオーバー</string>
+    <string name="restart">やり直す</string>
+    <string name="replay">もう一度プレイ</string>
+    <string name="quit_to_hub">ハブに戻る</string>
+    <string name="got_it">了解</string>
+    <string name="resume">再開</string>
+    <string name="later">後で</string>
+    <string name="update_available">アップデートがあります</string>
+    <string name="update_msg">Brainy Arcadeの新しいバージョンが利用可能です。新しいパズルとパフォーマンスの向上が含まれています！</string>
+    <string name="update_now">今すぐ更新</string>
+    <string name="cat_logic">ロジック</string>
+    <string name="cat_math">数学＆数字</string>
+    <string name="cat_spatial">空間認識</string>
+    <string name="cat_memory">記憶トレーニング</string>
+    <string name="cat_words">単語＆推論</string>
+    <string name="cat_strategy">戦略</string>
+    <string name="rate_title">Brainy Arcadeを評価</string>
+    <string name="rate_message">ゲームを楽しんでいますか？Play ストアでの評価をお願いします！</string>
+    <string name="rate_now">今すぐ評価</string>
+    <string name="rate_later">後で</string>
+</resources>

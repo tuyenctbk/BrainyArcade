@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Brainy Arcade</string>
+    <string name="hero_selection">Выбор героя</string>
+    <string name="recently_played">Недавние игры</string>
+    <string name="discover">ОТКРЫТЬ</string>
+    <string name="my_records">МОИ РЕКОРДЫ</string>
+    <string name="home">Главная</string>
+    <string name="categories">Категории</string>
+    <string name="select_level">Выбор уровня</string>
+    <string name="victory">ПОБЕДА!</string>
+    <string name="game_over">ИГРА ОКОНЧЕНА</string>
+    <string name="restart">Начать заново</string>
+    <string name="replay">Повторить</string>
+    <string name="quit_to_hub">Выйти в меню</string>
+    <string name="got_it">ПОНЯТНО</string>
+    <string name="resume">Продолжить</string>
+    <string name="later">Позже</string>
+    <string name="update_available">Доступно обновление</string>
+    <string name="update_msg">Доступна новая версия Brainy Arcade с новыми головоломками и повышенной производительностью!</string>
+    <string name="update_now">Обновить сейчас</string>
+    <string name="cat_logic">Логика</string>
+    <string name="cat_math">Математика и числа</string>
+    <string name="cat_spatial">Пространство</string>
+    <string name="cat_memory">Тренировка памяти</string>
+    <string name="cat_words">Слова и дедукция</string>
+    <string name="cat_strategy">Стратегия</string>
+    <string name="rate_title">Оценить Brainy Arcade</string>
+    <string name="rate_message">Нравится игра? Пожалуйста, найдите минутку, чтобы оценить нас в Play Store!</string>
+    <string name="rate_now">Оценить сейчас</string>
+    <string name="rate_later">Позже</string>
+</resources>
