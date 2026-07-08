@@ -23,6 +23,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.Locale
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
+import android.content.Context
+import android.content.pm.ActivityInfo
+import android.content.res.Configuration
+import android.util.Log
 
 /**
  * Base activity for all games in BrainyArcade.
@@ -55,6 +61,7 @@ abstract class BaseGameActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        applyOrientationPolicy()
         soundManager = SoundManager.getInstance(this)
         
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
@@ -84,6 +91,18 @@ abstract class BaseGameActivity : AppCompatActivity() {
 
         if (onboardingManager.shouldShowGameInstructions(gameId)) {
             showHelp(gameInfo?.howToPlayResId)
+        }
+
+        // Set beautiful static dark gradient background for the game activity
+        val rootView = findViewById<android.view.ViewGroup>(android.R.id.content)?.getChildAt(0)
+        if (rootView != null) {
+            val colors = intArrayOf(
+                Color.parseColor("#0C101B"),
+                Color.parseColor("#06080E"),
+                Color.parseColor("#020305")
+            )
+            val gd = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, colors)
+            rootView.background = gd
         }
     }
 
@@ -289,5 +308,25 @@ abstract class BaseGameActivity : AppCompatActivity() {
     
     protected fun playSfx(resId: Int) {
         soundManager.play(resId)
+    }
+
+    private fun applyOrientationPolicy() {
+        try {
+            val uiModeManager = getSystemService(Context.UI_MODE_SERVICE) as android.app.UiModeManager
+            val isTv = uiModeManager.currentModeType == Configuration.UI_MODE_TYPE_TELEVISION
+            
+            if (isTv) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            } else {
+                val smallestWidthDp = resources.configuration.smallestScreenWidthDp
+                if (smallestWidthDp >= 600) {
+                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+                } else {
+                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                }
+            }
+        } catch (e: Exception) {
+            Log.w("BaseGameActivity", "Failed to apply orientation policy: ${e.message}")
+        }
     }
 }

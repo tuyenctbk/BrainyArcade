@@ -136,7 +136,17 @@ class HanoiView @JvmOverloads constructor(
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        if (event.action == MotionEvent.ACTION_DOWN) performClick()
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            val pegWidth = width / 3f
+            if (pegWidth > 0) {
+                val pegIdx = (event.x / pegWidth).toInt().coerceIn(0, 2)
+                selectedPeg = pegIdx
+                handleSelection()
+                invalidate()
+                performClick()
+                return true
+            }
+        }
         return super.onTouchEvent(event)
     }
 

@@ -38,8 +38,7 @@
         <activity
             android:name=".hub.MainActivity"
             android:exported="true"
-            android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity">
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -47,31 +46,31 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".games.sudoku.SudokuActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.game2048.Game2048Activity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.wordle.WordleActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.minesweeper.MinesweeperActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.flow.FlowActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.nonogram.NonogramActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.mahjong.MahjongActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.sokoban.SokobanActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.chess.ChessActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.simon.SimonSaysActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.battleship.BattleshipActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.bridges.BridgesActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.slitherlink.SlitherlinkActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.gomoku.GomokuActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.mastermind.MastermindActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.hanoi.HanoiActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.reversi.ReversiActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.sliding.SlidingPuzzleActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.kakuro.KakuroActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.kenken.KenKenActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.tangram.TangramActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.starbattle.StarBattleActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.skyscraper.SkyscraperActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.akari.AkariActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".games.nurikabe.NurikabeActivity" android:exported="false" android:screenOrientation="landscape" tools:ignore="LockedOrientationActivity" />
+        <activity android:name=".games.sudoku.SudokuActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.game2048.Game2048Activity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.wordle.WordleActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.minesweeper.MinesweeperActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.flow.FlowActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.nonogram.NonogramActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.mahjong.MahjongActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.sokoban.SokobanActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.chess.ChessActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.simon.SimonSaysActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.battleship.BattleshipActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.bridges.BridgesActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.slitherlink.SlitherlinkActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.gomoku.GomokuActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.mastermind.MastermindActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.hanoi.HanoiActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.reversi.ReversiActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.sliding.SlidingPuzzleActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.kakuro.KakuroActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.kenken.KenKenActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.tangram.TangramActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.starbattle.StarBattleActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.skyscraper.SkyscraperActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.akari.AkariActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
+        <activity android:name=".games.nurikabe.NurikabeActivity" android:exported="false" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
 
     </application>
 

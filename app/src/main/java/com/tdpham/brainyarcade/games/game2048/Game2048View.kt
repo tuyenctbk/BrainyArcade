@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.view.GestureDetector
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
@@ -265,5 +266,69 @@ class Game2048View @JvmOverloads constructor(
         onLose?.invoke(score)
     }
 
-    override fun onTouchEvent(event: MotionEvent) = super.onTouchEvent(event)
+    private var startX = 0f
+    private var startY = 0f
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        if (gameOver) return super.onTouchEvent(event)
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                startX = event.x
+                startY = event.y
+                requestFocus()
+                return true
+            }
+            MotionEvent.ACTION_UP -> {
+                val diffX = event.x - startX
+                val diffY = event.y - startY
+                val swipeThreshold = 80
+                
+                if (Math.abs(diffX) > Math.abs(diffY)) {
+                    if (Math.abs(diffX) > swipeThreshold) {
+                        var moved = false
+                        if (diffX > 0) {
+                            saveHistory()
+                            moved = moveRight()
+                        } else {
+                            saveHistory()
+                            moved = moveLeft()
+                        }
+                        if (moved) {
+                            addRandomTile()
+                            checkGameOver()
+                            onScoreUpdate?.invoke(score)
+                            invalidate()
+                        }
+                        performClick()
+                        return true
+                    }
+                } else {
+                    if (Math.abs(diffY) > swipeThreshold) {
+                        var moved = false
+                        if (diffY > 0) {
+                            saveHistory()
+                            moved = moveDown()
+                        } else {
+                            saveHistory()
+                            moved = moveUp()
+                        }
+                        if (moved) {
+                            addRandomTile()
+                            checkGameOver()
+                            onScoreUpdate?.invoke(score)
+                            invalidate()
+                        }
+                        performClick()
+                        return true
+                    }
+                }
+                performClick()
+            }
+        }
+        return true
+    }
+
+    override fun performClick(): Boolean {
+        return super.performClick()
+    }
 }

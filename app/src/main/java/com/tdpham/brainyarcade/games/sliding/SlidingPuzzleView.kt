@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.view.GestureDetector
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
@@ -157,5 +158,52 @@ class SlidingPuzzleView @JvmOverloads constructor(
         }
     }
 
-    override fun onTouchEvent(event: MotionEvent) = super.onTouchEvent(event)
+    private val gestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
+        override fun onSingleTapUp(e: MotionEvent): Boolean {
+            if (gameOver || animProgress < 1.0f) return false
+            val availableSize = Math.min(width, height).toFloat()
+            val cellSize = availableSize / size
+            val offsetX = (width - availableSize) / 2
+            val offsetY = (height - availableSize) / 2
+
+            val x = e.x
+            val y = e.y
+
+            if (x >= offsetX && x < offsetX + availableSize && y >= offsetY && y < offsetY + availableSize) {
+                val c = ((x - offsetX) / cellSize).toInt()
+                val r = ((y - offsetY) / cellSize).toInt()
+                val tappedPos = r * size + c
+                
+                val neighbors = getNeighbors(emptyPos)
+                if (neighbors.contains(tappedPos)) {
+                    animateSlide(emptyPos, tappedPos)
+                    swap(emptyPos, tappedPos)
+                    emptyPos = tappedPos
+                    moves++
+                    onMove?.invoke(moves)
+                    checkWin()
+                    return true
+                }
+            }
+            return false
+        }
+
+        override fun onDown(e: MotionEvent): Boolean {
+            return true
+        }
+    })
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        if (gestureDetector.onTouchEvent(event)) {
+            return true
+        }
+        if (event.action == MotionEvent.ACTION_UP) {
+            performClick()
+        }
+        return true
+    }
+
+    override fun performClick(): Boolean {
+        return super.performClick()
+    }
 }

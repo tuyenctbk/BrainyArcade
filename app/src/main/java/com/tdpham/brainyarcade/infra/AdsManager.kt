@@ -15,8 +15,18 @@ object AdsManager {
     private var rewardedAd: RewardedAd? = null
     private var isInitializing = false
     private var isInitialized = false
+    private var sessionStartTime: Long = 0L
+    private var isSessionTracked = false
 
     fun initialize(context: Context) {
+        if (sessionStartTime == 0L) {
+            sessionStartTime = System.currentTimeMillis()
+        }
+        if (!isSessionTracked) {
+            isSessionTracked = true
+            incrementAppOpens(context)
+        }
+
         if (isInitialized || isInitializing) return
         isInitializing = true
         MobileAds.initialize(context) { status ->
@@ -49,6 +59,12 @@ object AdsManager {
     }
 
     fun showInterstitial(activity: Activity, onDismiss: () -> Unit) {
+        if (!shouldShowAds(activity)) {
+            Log.d(TAG, "Ad display blocked by Remote Config criteria (installation age, open threshold, or startup delay).")
+            onDismiss()
+            return
+        }
+
         val ad = interstitialAd
         if (ad != null) {
             ad.fullScreenContentCallback = object : FullScreenContentCallback() {
@@ -116,5 +132,55 @@ object AdsManager {
             Log.d(TAG, "Rewarded ad not ready.")
             loadRewarded(activity)
         }
+    }
+
+    private fun getAppOpens(context: Context): Int {
+        val prefs = context.getSharedPreferences("ads_prefs", Context.MODE_PRIVATE)
+        return prefs.getInt("app_opens", 0)
+    }
+
+    private fun incrementAppOpens(context: Context) {
+        val prefs = context.getSharedPreferences("ads_prefs", Context.MODE_PRIVATE)
+        val current = prefs.getInt("app_opens", 0)
+        prefs.edit().putInt("app_opens", current + 1).apply()
+        Log.d(TAG, "Incremented app opens. Current: ${current + 1}")
+    }
+
+    private fun getDaysSinceInstall(context: Context): Int {
+        return try {
+            val installTime = context.packageManager.getPackageInfo(context.packageName, 0).firstInstallTime
+            val diffMs = System.currentTimeMillis() - installTime
+            val diffDays = diffMs / (1000 * 60 * 60 * 24)
+            diffDays.toInt()
+        } catch (e: Exception) {
+            0
+        }
+    }
+
+    private fun getSecondsInSession(): Int {
+        if (sessionStartTime == 0L) return 0
+        val diffMs = System.currentTimeMillis() - sessionStartTime
+        return (diffMs / 1000).toInt()
+    }
+
+    fun shouldShowAds(context: Context): Boolean {
+        val minDays = RemoteConfigHelper.getMinDays()
+        val minOpens = RemoteConfigHelper.getMinOpens()
+        val minSessionSecs = RemoteConfigHelper.getMinSessionSeconds()
+
+        val days = getDaysSinceInstall(context)
+        val opens = getAppOpens(context)
+        val sessionSecs = getSecondsInSession()
+
+        val isInstallTimePassed = days >= minDays
+        val isOpenCountPassed = opens >= minOpens
+        val isSessionDelayPassed = sessionSecs >= minSessionSecs
+
+        Log.d(TAG, "Checking ads visibility conditions: " +
+                "Days since install: $days/$minDays (Passed: $isInstallTimePassed), " +
+                "App opens: $opens/$minOpens (Passed: $isOpenCountPassed), " +
+                "Seconds in session: $sessionSecs/$minSessionSecs (Passed: $isSessionDelayPassed)")
+
+        return isInstallTimePassed && isOpenCountPassed && isSessionDelayPassed
     }
 }

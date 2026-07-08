@@ -22,9 +22,18 @@ import kotlinx.coroutines.withContext
 import java.util.Locale
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
+import android.animation.ValueAnimator
+import android.animation.ArgbEvaluator
+import android.view.ViewGroup
 import com.tdpham.brainyarcade.infra.AdsManager
 import com.tdpham.brainyarcade.infra.FirebaseManager
+import com.tdpham.brainyarcade.infra.RemoteConfigHelper
 import android.util.Log
+import android.content.pm.ActivityInfo
+import android.content.res.Configuration
+import android.content.Context
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,15 +41,19 @@ class MainActivity : AppCompatActivity() {
     private lateinit var onboardingManager: OnboardingManager
     private val db by lazy { AppDatabase.getDatabase(this) }
     private var allGames = listOf<GameInfo>()
+    private var currentAnimator: ValueAnimator? = null
+    private var isBackgroundAnimationRunning = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        applyOrientationPolicy()
         setContentView(R.layout.activity_main)
 
         onboardingManager = OnboardingManager(this)
         rowsGrid = findViewById(R.id.hub_rows)
         
         FirebaseManager.initialize(this)
+        RemoteConfigHelper.initialize(this)
         AdsManager.initialize(this)
         
         try {
@@ -303,6 +316,103 @@ class MainActivity : AppCompatActivity() {
                 }
                 .show()
         }
+    }
+
+    private fun applyOrientationPolicy() {
+        try {
+            val uiModeManager = getSystemService(Context.UI_MODE_SERVICE) as android.app.UiModeManager
+            val isTv = uiModeManager.currentModeType == Configuration.UI_MODE_TYPE_TELEVISION
+            
+            if (isTv) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            } else {
+                val smallestWidthDp = resources.configuration.smallestScreenWidthDp
+                if (smallestWidthDp >= 600) {
+                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+                } else {
+                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                }
+            }
+        } catch (e: Exception) {
+            Log.w("MainActivity", "Failed to apply orientation policy: ${e.message}")
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        isBackgroundAnimationRunning = true
+        val rootView = findViewById<ViewGroup>(android.R.id.content)?.getChildAt(0)
+        if (rootView != null) {
+            startBackgroundAnimation(rootView)
+        }
+    }
+
+    override fun onStop() {
+        isBackgroundAnimationRunning = false
+        currentAnimator?.cancel()
+        currentAnimator = null
+        super.onStop()
+    }
+
+    private data class GradientPalette(val startColor: Int, val centerColor: Int, val endColor: Int)
+
+    private val palettes = listOf(
+        GradientPalette(Color.parseColor("#0B132B"), Color.parseColor("#070B19"), Color.parseColor("#020305")), // Cyberpunk Navy
+        GradientPalette(Color.parseColor("#1C0B2B"), Color.parseColor("#0E0516"), Color.parseColor("#020104")), // Obsidian Violet
+        GradientPalette(Color.parseColor("#052224"), Color.parseColor("#021112"), Color.parseColor("#010405")), // Deep Teal
+        GradientPalette(Color.parseColor("#2A0A10"), Color.parseColor("#150508"), Color.parseColor("#030102")), // Crimson Velvet
+        GradientPalette(Color.parseColor("#25140A"), Color.parseColor("#120A05"), Color.parseColor("#020101")), // Bronze Amber
+        GradientPalette(Color.parseColor("#121820"), Color.parseColor("#090C10"), Color.parseColor("#020304"))  // Steel Slate
+    )
+
+    private fun startBackgroundAnimation(rootView: android.view.View) {
+        val random = java.util.Random()
+        var currentPaletteIndex = random.nextInt(palettes.size)
+        var nextPaletteIndex = (currentPaletteIndex + 1) % palettes.size
+
+        val evaluator = ArgbEvaluator()
+
+        val initialPalette = palettes[currentPaletteIndex]
+        val drawable = GradientDrawable(
+            GradientDrawable.Orientation.TOP_BOTTOM,
+            intArrayOf(initialPalette.startColor, initialPalette.centerColor, initialPalette.endColor)
+        )
+        rootView.background = drawable
+
+        fun animateTransition() {
+            val startPalette = palettes[currentPaletteIndex]
+            val endPalette = palettes[nextPaletteIndex]
+
+            val animator = ValueAnimator.ofFloat(0f, 1f)
+            animator.duration = 10000 // 10 seconds for a super smooth transition
+            animator.addUpdateListener { animation ->
+                val fraction = animation.animatedValue as Float
+                val startColor = evaluator.evaluate(fraction, startPalette.startColor, endPalette.startColor) as Int
+                val centerColor = evaluator.evaluate(fraction, startPalette.centerColor, endPalette.centerColor) as Int
+                val endColor = evaluator.evaluate(fraction, startPalette.endColor, endPalette.endColor) as Int
+
+                val colors = intArrayOf(startColor, centerColor, endColor)
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+                    (rootView.background as? GradientDrawable)?.colors = colors
+                } else {
+                    val gd = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, colors)
+                    rootView.background = gd
+                }
+            }
+            
+            animator.addListener(object : android.animation.AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: android.animation.Animator) {
+                    if (!isBackgroundAnimationRunning) return
+                    currentPaletteIndex = nextPaletteIndex
+                    nextPaletteIndex = (nextPaletteIndex + random.nextInt(palettes.size - 1) + 1) % palettes.size
+                    animateTransition()
+                }
+            })
+            currentAnimator = animator
+            animator.start()
+        }
+
+        animateTransition()
     }
 
     companion object {

@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.view.GestureDetector
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
@@ -198,5 +199,55 @@ class SokobanView @JvmOverloads constructor(
         if (grid.none { row -> row.contains(3) }) { gameOver = true; onWin?.invoke(moves) }
     }
 
-    override fun onTouchEvent(event: MotionEvent) = super.onTouchEvent(event)
+    private var startX = 0f
+    private var startY = 0f
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        if (gameOver) return super.onTouchEvent(event)
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                startX = event.x
+                startY = event.y
+                requestFocus()
+                return true
+            }
+            MotionEvent.ACTION_UP -> {
+                val diffX = event.x - startX
+                val diffY = event.y - startY
+                val swipeThreshold = 80
+                
+                if (Math.abs(diffX) > Math.abs(diffY)) {
+                    if (Math.abs(diffX) > swipeThreshold) {
+                        if (diffX > 0) {
+                            move(1, 0)
+                        } else {
+                            move(-1, 0)
+                        }
+                        invalidate()
+                        performClick()
+                        return true
+                    }
+                } else {
+                    if (Math.abs(diffY) > swipeThreshold) {
+                        if (diffY > 0) {
+                            move(0, 1)
+                        } else {
+                            if (playerY > 0) {
+                                move(0, -1)
+                            }
+                        }
+                        invalidate()
+                        performClick()
+                        return true
+                    }
+                }
+                performClick()
+            }
+        }
+        return true
+    }
+
+    override fun performClick(): Boolean {
+        return super.performClick()
+    }
 }

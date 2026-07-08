@@ -13,7 +13,7 @@
         android:id="@+id/reversi_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="32dp"
+        android:layout_margin="@dimen/game_board_margin"
         app:layout_constraintBottom_toTopOf="@+id/game_hint"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
