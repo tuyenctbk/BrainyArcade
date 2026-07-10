@@ -11,6 +11,9 @@ object RemoteConfigHelper {
     private const val KEY_MIN_DAYS = "ads_min_days"
     private const val KEY_MIN_OPENS = "ads_min_opens"
     private const val KEY_MIN_SESSION_SECONDS = "ads_min_session_seconds"
+    private const val KEY_COOLDOWN_SECONDS = "ads_cooldown_seconds"
+    private const val KEY_MAX_PER_SESSION = "ads_max_per_session"
+    private const val KEY_LATEST_VERSION = "latest_version"
 
     private val remoteConfig: FirebaseRemoteConfig by lazy {
         FirebaseRemoteConfig.getInstance()
@@ -24,9 +27,12 @@ object RemoteConfigHelper {
             remoteConfig.setConfigSettingsAsync(configSettings)
 
             val defaultMap = mapOf(
-                KEY_MIN_DAYS to 3L,
-                KEY_MIN_OPENS to 10L,
-                KEY_MIN_SESSION_SECONDS to 10L
+                KEY_MIN_DAYS to 7L,
+                KEY_MIN_OPENS to 20L,
+                KEY_MIN_SESSION_SECONDS to 30L,
+                KEY_COOLDOWN_SECONDS to 180L,
+                KEY_MAX_PER_SESSION to 3L,
+                KEY_LATEST_VERSION to 0L
             )
             remoteConfig.setDefaultsAsync(defaultMap)
 
@@ -53,5 +59,17 @@ object RemoteConfigHelper {
 
     fun getMinSessionSeconds(): Int {
         return remoteConfig.getLong(KEY_MIN_SESSION_SECONDS).toInt()
+    }
+
+    fun getCooldownSeconds(): Int {
+        return remoteConfig.getLong(KEY_COOLDOWN_SECONDS).toInt()
+    }
+
+    fun getMaxPerSession(): Int {
+        return remoteConfig.getLong(KEY_MAX_PER_SESSION).toInt()
+    }
+
+    fun getLatestVersion(): Int {
+        return remoteConfig.getLong(KEY_LATEST_VERSION).toInt()
     }
 }

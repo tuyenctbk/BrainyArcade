@@ -34,6 +34,7 @@ import android.util.Log
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.content.Context
+import android.net.Uri
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
     private var allGames = listOf<GameInfo>()
     private var currentAnimator: ValueAnimator? = null
     private var isBackgroundAnimationRunning = false
+    private var adView: AdView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         AdsManager.initialize(this)
         
         try {
-            val adView = findViewById<AdView>(R.id.ad_view_hub)
+            adView = findViewById<AdView>(R.id.ad_view_hub)
             val adRequest = AdRequest.Builder().build()
             adView?.loadAd(adRequest)
         } catch (e: Exception) {
@@ -179,7 +181,7 @@ class MainActivity : AppCompatActivity() {
                     spannable.append("\n")
                 }
             }
-            val message = if (spannable.isEmpty()) SpannableStringBuilder("No records yet. Play a game to set one!") else spannable
+            val message = if (spannable.isEmpty()) getString(R.string.no_records) else spannable
             AlertDialog.Builder(this@MainActivity, R.style.Theme_BrainyArcade_Dialog)
                 .setTitle(getString(R.string.my_records))
                 .setMessage(message)
@@ -190,8 +192,19 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        adView?.resume()
         refreshDiscoveryHub()
         checkRatingSuggestion()
+    }
+
+    override fun onPause() {
+        adView?.pause()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        adView?.destroy()
+        super.onDestroy()
     }
 
     private fun initGamesList() {
@@ -272,12 +285,18 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             kotlinx.coroutines.delay(2000)
             val currentVersion = packageManager.getPackageInfo(packageName, 0).versionCode
-            val latestVersion = 101
+            val latestVersion = RemoteConfigHelper.getLatestVersion()
             if (latestVersion > currentVersion) {
                 com.google.android.material.dialog.MaterialAlertDialogBuilder(this@MainActivity, R.style.Theme_BrainyArcade_Dialog)
                     .setTitle(getString(R.string.update_available))
                     .setMessage(getString(R.string.update_msg))
-                    .setPositiveButton(getString(R.string.update_now)) { _, _ -> }
+                    .setPositiveButton(getString(R.string.update_now)) { _, _ ->
+                        try {
+                            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")))
+                        } catch (e: Exception) {
+                            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageName")))
+                        }
+                    }
                     .setNegativeButton(getString(R.string.later), null)
                     .show()
             }
@@ -302,17 +321,42 @@ class MainActivity : AppCompatActivity() {
             val progress = withContext(Dispatchers.IO) { db.gameDao().getProgress(game.id) }
             val maxUnlocked = progress?.maxLevelReached ?: 1
             
-            val levels = (1..Math.min(maxUnlocked + 1, 100)).map { 
+            val levelsList = (1..Math.min(maxUnlocked + 1, 100)).map { 
                 String.format(Locale.US, getString(R.string.label_level), it)
-            }.toTypedArray()
+            }.toMutableList()
+            
+            val nextLockedLevel = maxUnlocked + 2
+            if (nextLockedLevel <= 100) {
+                levelsList.add("🎟️ UNLOCK LEVEL $nextLockedLevel EARLY (WATCH AD)")
+            }
+            
+            val levels = levelsList.toTypedArray()
             
             com.google.android.material.dialog.MaterialAlertDialogBuilder(this@MainActivity, R.style.Theme_BrainyArcade_Dialog)
                 .setTitle(getString(R.string.select_level))
                 .setItems(levels) { _, which ->
-                    val selectedLevel = which + 1
-                    startActivity(Intent(this@MainActivity, game.activityClass).apply {
-                        putExtra("GAME_LEVEL", selectedLevel)
-                    })
+                    if (nextLockedLevel <= 100 && which == levels.size - 1) {
+                        AdsManager.showRewarded(this@MainActivity) { _ ->
+                            FirebaseManager.logAdRewarded(game.id)
+                            lifecycleScope.launch {
+                                withContext(Dispatchers.IO) {
+                                    val newMax = maxUnlocked + 1
+                                    db.gameDao().updateProgress(com.tdpham.brainyarcade.db.GameProgress(
+                                        gameId = game.id,
+                                        currentLevel = newMax,
+                                        maxLevelReached = newMax
+                                    ))
+                                }
+                                Toast.makeText(this@MainActivity, "Level $nextLockedLevel unlocked successfully!", Toast.LENGTH_SHORT).show()
+                                showLevelSelection(game)
+                            }
+                        }
+                    } else {
+                        val selectedLevel = which + 1
+                        startActivity(Intent(this@MainActivity, game.activityClass).apply {
+                            putExtra("GAME_LEVEL", selectedLevel)
+                        })
+                    }
                 }
                 .show()
         }
