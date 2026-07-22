@@ -245,6 +245,7 @@ abstract class BaseGameActivity : AppCompatActivity() {
     protected fun onGameOver(score: Int, won: Boolean) {
         stopTimer()
         if (won) {
+            onboardingManager.incrementGamesWon()
             FirebaseManager.logGameWin(gameId, score)
             lifecycleScope.launch(Dispatchers.IO) {
                 // 1. Save High Score

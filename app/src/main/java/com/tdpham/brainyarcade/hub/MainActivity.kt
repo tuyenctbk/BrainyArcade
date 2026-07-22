@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         onboardingManager = OnboardingManager(this)
+        onboardingManager.incrementLaunchCount()
         rowsGrid = findViewById(R.id.hub_rows)
         
         FirebaseManager.initialize(this)
@@ -269,36 +270,78 @@ class MainActivity : AppCompatActivity() {
     private fun checkRatingSuggestion() {
         if (onboardingManager.shouldShowRating()) {
             com.google.android.material.dialog.MaterialAlertDialogBuilder(this, R.style.Theme_BrainyArcade_Dialog)
-                .setTitle(getString(R.string.rate_title))
-                .setMessage(getString(R.string.rate_message))
-                .setPositiveButton(getString(R.string.rate_now)) { _, _ ->
-                    onboardingManager.markRated()
+                .setTitle("Enjoying Brainy Arcade?")
+                .setMessage("Are you having fun training your mind with our puzzles?")
+                .setPositiveButton("Yes, it's great!") { _, _ ->
+                    com.google.android.material.dialog.MaterialAlertDialogBuilder(this@MainActivity, R.style.Theme_BrainyArcade_Dialog)
+                        .setTitle(getString(R.string.rate_title))
+                        .setMessage(getString(R.string.rate_message))
+                        .setPositiveButton(getString(R.string.rate_now)) { _, _ ->
+                            onboardingManager.markRated()
+                            try {
+                                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")))
+                            } catch (e: Exception) {
+                                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageName")))
+                            }
+                        }
+                        .setNegativeButton(getString(R.string.rate_later), null)
+                        .show()
                 }
-                .setNegativeButton(getString(R.string.rate_later), null)
+                .setNegativeButton("Not really") { _, _ ->
+                    onboardingManager.markRated() // Stop asking if they don't enjoy it
+                    com.google.android.material.dialog.MaterialAlertDialogBuilder(this@MainActivity, R.style.Theme_BrainyArcade_Dialog)
+                        .setTitle("We're Sorry!")
+                        .setMessage("We want to make Brainy Arcade as good as possible. Would you like to send us feedback on how to improve?")
+                        .setPositiveButton("Send Feedback") { _, _ ->
+                            val intent = Intent(Intent.ACTION_SENDTO).apply {
+                                data = Uri.parse("mailto:")
+                                putExtra(Intent.EXTRA_EMAIL, arrayOf("support@brainyarcade.com"))
+                                putExtra(Intent.EXTRA_SUBJECT, "Brainy Arcade Feedback")
+                            }
+                            try {
+                                startActivity(Intent.createChooser(intent, "Send Feedback"))
+                            } catch (e: Exception) {
+                                Toast.makeText(this@MainActivity, "Could not open email app.", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                        .setNegativeButton("No, thanks", null)
+                        .show()
+                }
                 .show()
         }
     }
 
     private fun checkForUpdates() {
         if (updatePromptedThisSession) return
-        updatePromptedThisSession = true
         lifecycleScope.launch {
-            kotlinx.coroutines.delay(2000)
             val currentVersion = packageManager.getPackageInfo(packageName, 0).versionCode
             val latestVersion = RemoteConfigHelper.getLatestVersion()
             if (latestVersion > currentVersion) {
-                com.google.android.material.dialog.MaterialAlertDialogBuilder(this@MainActivity, R.style.Theme_BrainyArcade_Dialog)
-                    .setTitle(getString(R.string.update_available))
-                    .setMessage(getString(R.string.update_msg))
-                    .setPositiveButton(getString(R.string.update_now)) { _, _ ->
-                        try {
-                            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")))
-                        } catch (e: Exception) {
-                            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageName")))
-                        }
+                // Wait until the user has won at least one game, or spent 45 seconds in the app
+                while (true) {
+                    kotlinx.coroutines.delay(5000)
+                    val sessionSecs = (System.currentTimeMillis() - AdsManager.sessionStartTime) / 1000
+                    val gamesWon = onboardingManager.getGamesWonCount()
+                    if (sessionSecs >= 45 || gamesWon >= 1) {
+                        break
                     }
-                    .setNegativeButton(getString(R.string.later), null)
-                    .show()
+                }
+                
+                if (!updatePromptedThisSession) {
+                    updatePromptedThisSession = true
+                    com.google.android.material.dialog.MaterialAlertDialogBuilder(this@MainActivity, R.style.Theme_BrainyArcade_Dialog)
+                        .setTitle(getString(R.string.update_available))
+                        .setMessage(getString(R.string.update_msg))
+                        .setPositiveButton(getString(R.string.update_now)) { _, _ ->
+                            try {
+                                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")))
+                            } catch (e: Exception) {
+                                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageName")))
+                            }
+                        }
+                        .setNegativeButton(getString(R.string.later), null)
+                        .show()
+                }
             }
         }
     }

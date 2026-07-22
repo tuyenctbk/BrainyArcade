@@ -16,7 +16,7 @@ object AdsManager {
     private var rewardedAd: RewardedAd? = null
     private var isInitializing = false
     private var isInitialized = false
-    private var sessionStartTime: Long = 0L
+    var sessionStartTime: Long = 0L
     private var isSessionTracked = false
     
     // Ad frequency control

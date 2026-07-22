@@ -17,12 +17,37 @@ class OnboardingManager(context: Context) {
         return firstRun
     }
 
-    fun shouldShowRating(): Boolean {
+    fun incrementGamesWon() {
+        val count = prefs.getInt("games_won", 0) + 1
+        prefs.edit().putInt("games_won", count).apply()
+    }
+
+    fun getGamesWonCount(): Int {
+        return prefs.getInt("games_won", 0)
+    }
+
+    fun incrementLaunchCount() {
         val launchCount = prefs.getInt("launch_count", 0) + 1
         prefs.edit().putInt("launch_count", launchCount).apply()
-        
+    }
+
+    fun shouldShowRating(): Boolean {
+        val launchCount = prefs.getInt("launch_count", 0)
         val alreadyRated = prefs.getBoolean("already_rated", false)
-        return !alreadyRated && (launchCount == 5 || launchCount == 15 || launchCount == 30)
+        val gamesWon = prefs.getInt("games_won", 0)
+        val lastPrompted = prefs.getLong("last_prompted_time", 0L)
+        val now = System.currentTimeMillis()
+        val cooldownMs = 3 * 24 * 60 * 60 * 1000L // 3 days
+
+        val shouldPrompt = !alreadyRated && 
+                           launchCount >= 3 && 
+                           gamesWon >= 2 && 
+                           (now - lastPrompted > cooldownMs)
+
+        if (shouldPrompt) {
+            prefs.edit().putLong("last_prompted_time", now).apply()
+        }
+        return shouldPrompt
     }
 
     fun markRated() {
