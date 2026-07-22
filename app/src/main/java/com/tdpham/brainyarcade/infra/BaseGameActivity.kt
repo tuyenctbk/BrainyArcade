@@ -267,6 +267,7 @@ abstract class BaseGameActivity : AppCompatActivity() {
         runOnUiThread {
             AlertDialog.Builder(this, R.style.Theme_BrainyArcade_Dialog)
                 .setTitle(if (won) getString(R.string.victory) else getString(R.string.game_over))
+                .setIcon(R.drawable.mascot_neuro)
                 .setMessage(if (won) getString(R.string.victory_msg, formatScore(score)) else getString(R.string.better_luck))
                 .setPositiveButton(getString(R.string.replay)) { _, _ -> restartGame() }
                 .setNegativeButton(getString(R.string.quit_to_hub)) { _, _ -> exitGame() }
@@ -326,6 +327,7 @@ abstract class BaseGameActivity : AppCompatActivity() {
     private fun showHelp(guideResId: Int?) {
         AlertDialog.Builder(this, R.style.Theme_BrainyArcade_Dialog)
             .setTitle(getString(R.string.how_to_play_title))
+            .setIcon(R.drawable.mascot_neuro)
             .setMessage(if (guideResId != null) getString(guideResId) else getString(R.string.no_instr))
             .setPositiveButton(getString(R.string.got_it), null)
             .show()

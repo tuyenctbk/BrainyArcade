@@ -261,6 +261,7 @@ class MainActivity : AppCompatActivity() {
         if (onboardingManager.isFirstRun()) {
             com.google.android.material.dialog.MaterialAlertDialogBuilder(this, R.style.Theme_BrainyArcade_Dialog)
                 .setTitle(getString(R.string.app_name).uppercase())
+                .setIcon(R.drawable.mascot_neuro)
                 .setMessage("Welcome to Brainy Arcade! Discover 25 world-class logic puzzles. Train your mind every day and break your personal best records.")
                 .setPositiveButton(getString(R.string.got_it)) { dialog, _ -> dialog.dismiss() }
                 .show()
@@ -271,10 +272,12 @@ class MainActivity : AppCompatActivity() {
         if (onboardingManager.shouldShowRating()) {
             com.google.android.material.dialog.MaterialAlertDialogBuilder(this, R.style.Theme_BrainyArcade_Dialog)
                 .setTitle("Enjoying Brainy Arcade?")
+                .setIcon(R.drawable.mascot_neuro)
                 .setMessage("Are you having fun training your mind with our puzzles?")
                 .setPositiveButton("Yes, it's great!") { _, _ ->
                     com.google.android.material.dialog.MaterialAlertDialogBuilder(this@MainActivity, R.style.Theme_BrainyArcade_Dialog)
                         .setTitle(getString(R.string.rate_title))
+                        .setIcon(R.drawable.mascot_neuro)
                         .setMessage(getString(R.string.rate_message))
                         .setPositiveButton(getString(R.string.rate_now)) { _, _ ->
                             onboardingManager.markRated()
@@ -291,6 +294,7 @@ class MainActivity : AppCompatActivity() {
                     onboardingManager.markRated() // Stop asking if they don't enjoy it
                     com.google.android.material.dialog.MaterialAlertDialogBuilder(this@MainActivity, R.style.Theme_BrainyArcade_Dialog)
                         .setTitle("We're Sorry!")
+                        .setIcon(R.drawable.mascot_neuro)
                         .setMessage("We want to make Brainy Arcade as good as possible. Would you like to send us feedback on how to improve?")
                         .setPositiveButton("Send Feedback") { _, _ ->
                             val intent = Intent(Intent.ACTION_SENDTO).apply {
