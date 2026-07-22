@@ -15,6 +15,6 @@ class AkariActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_akari)
         gameView = findViewById(R.id.akari_view)
-        gameView.onWin = { score -> onGameWin(score) }
+        gameView.onWin = { onGameWin() }
     }
 }

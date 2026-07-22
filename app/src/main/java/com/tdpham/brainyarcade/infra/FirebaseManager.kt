@@ -54,4 +54,17 @@ object FirebaseManager {
             Log.w(TAG, "Crashlytics not initialized: ${e.message}")
         }
     }
+
+    fun logAdRewarded(gameId: String) {
+        try {
+            val bundle = Bundle().apply {
+                putString("game_id", gameId)
+                putLong("timestamp", System.currentTimeMillis())
+            }
+            firebaseAnalytics?.logEvent("ad_rewarded_unlock", bundle)
+            Log.d(TAG, "Logged event: ad_rewarded_unlock ($gameId)")
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to log event: ${e.message}")
+        }
+    }
 }

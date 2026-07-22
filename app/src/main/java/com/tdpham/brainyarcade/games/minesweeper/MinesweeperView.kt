@@ -19,7 +19,7 @@ class MinesweeperView @JvmOverloads constructor(
 
     private val cols = 10
     private val rows = 10
-    private val mineCount = 15
+    private var currentMineCount = 15
     private val grid = Array(cols) { IntArray(rows) { 0 } }
     private val revealed = Array(cols) { BooleanArray(rows) { false } }
     private val flagged = Array(cols) { BooleanArray(rows) { false } }
@@ -46,8 +46,7 @@ class MinesweeperView @JvmOverloads constructor(
 
     override fun resetGame(seed: Long, level: Int) {
         gameSeed = seed
-        // Difficulty: Increase mine count with level
-        // mineCount = 15 + level/5
+        currentMineCount = Math.min(10 + level, 30) // Difficulty scaling
         for (i in 0 until cols) {
             for (j in 0 until rows) {
                 grid[i][j] = 0
@@ -64,7 +63,7 @@ class MinesweeperView @JvmOverloads constructor(
     private fun placeMines(startX: Int, startY: Int) {
         val rand = if (gameSeed == -1L) Random.Default else Random(gameSeed)
         var minesPlaced = 0
-        while (minesPlaced < mineCount) {
+        while (minesPlaced < currentMineCount) {
             val x = rand.nextInt(cols)
             val y = rand.nextInt(rows)
             
@@ -255,9 +254,9 @@ class MinesweeperView @JvmOverloads constructor(
         for (i in 0 until cols) {
             for (j in 0 until rows) if (revealed[i][j]) count++
         }
-        if (count == cols * rows - mineCount) {
+        if (count == cols * rows - currentMineCount) {
             win = true
-            onWin?.invoke(mineCount * 10)
+            onWin?.invoke(currentMineCount * 10)
         }
     }
 

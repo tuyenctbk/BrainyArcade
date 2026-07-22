@@ -16,6 +16,6 @@ class KenKenActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kenken)
         gameView = findViewById(R.id.kenken_view)
-        gameView.onWin = { score -> onGameWin(score) }
+        gameView.onWin = { onGameWin() }
     }
 }

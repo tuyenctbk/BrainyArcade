@@ -117,6 +117,8 @@ class MahjongView @JvmOverloads constructor(
             KeyEvent.KEYCODE_DPAD_LEFT, KeyEvent.KEYCODE_DPAD_RIGHT -> {
                 // Find next available tile index
                 val currentIdx = activeIndices.indexOf(focusedTileIdx)
+                if (keyCode == KeyEvent.KEYCODE_DPAD_UP && currentIdx == 0) return false
+
                 val nextIdx = if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT || keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
                     (currentIdx + 1) % activeIndices.size
                 } else {

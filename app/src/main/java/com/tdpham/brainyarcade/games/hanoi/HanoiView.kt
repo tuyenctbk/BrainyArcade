@@ -17,7 +17,7 @@ class HanoiView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr), GameView {
 
-    private val numDisks = 5
+    private var currentDisks = 5
     private val pegs = Array(3) { Stack<Int>() }
     private var selectedPeg = 0
     private var sourcePeg = -1
@@ -37,8 +37,9 @@ class HanoiView @JvmOverloads constructor(
     }
 
     override fun resetGame(seed: Long, level: Int) {
+        currentDisks = Math.min(3 + level / 2, 7) // Scale from 3 to 7 disks
         for (i in 0..2) pegs[i].clear()
-        for (i in numDisks downTo 1) pegs[0].push(i)
+        for (i in currentDisks downTo 1) pegs[0].push(i)
         gameOver = false
         selectedPeg = 0
         sourcePeg = -1
@@ -59,7 +60,7 @@ class HanoiView @JvmOverloads constructor(
             val pegX = i * pegWidth + pegWidth / 2
             
             paint.color = ContextCompat.getColor(context, R.color.text_gray_light)
-            canvas.drawRect(pegX - 8f, baseLine - numDisks * diskHeight - 60f, pegX + 8f, baseLine, paint)
+            canvas.drawRect(pegX - 8f, baseLine - currentDisks * diskHeight - 60f, pegX + 8f, baseLine, paint)
 
             if ((i == selectedPeg && isFocused) || i == sourcePeg) {
                 paint.color = neonCyanTrans
@@ -78,7 +79,7 @@ class HanoiView @JvmOverloads constructor(
 
             for (idx in 0 until pegs[i].size) {
                 val diskSize = pegs[i][idx]
-                val diskWidth = (diskSize / numDisks.toFloat()) * (pegWidth * 0.8f)
+                val diskWidth = (diskSize / currentDisks.toFloat()) * (pegWidth * 0.8f)
                 val top = baseLine - (idx + 1) * diskHeight
                 
                 paint.color = getDiskColor(diskSize)
@@ -129,7 +130,7 @@ class HanoiView @JvmOverloads constructor(
     }
 
     private fun checkWin() {
-        if (pegs[2].size == numDisks) {
+        if (pegs[2].size == currentDisks) {
             gameOver = true
             onWin?.invoke(moves)
         }

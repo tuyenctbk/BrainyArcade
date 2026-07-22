@@ -15,7 +15,7 @@ class BattleshipActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_battleship)
         gameView = findViewById(R.id.battleship_view)
-        gameView.onWin = { score -> onGameOver(score, true) }
+        gameView.onWin = { onGameWin() }
         gameView.onLose = { onGameOver(0, false) }
     }
 }

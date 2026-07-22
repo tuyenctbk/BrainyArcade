@@ -15,6 +15,6 @@ class FlowActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flow)
         gameView = findViewById(R.id.flow_view)
-        gameView.onWin = { score -> onGameWin(score) }
+        gameView.onWin = { onGameWin() }
     }
 }

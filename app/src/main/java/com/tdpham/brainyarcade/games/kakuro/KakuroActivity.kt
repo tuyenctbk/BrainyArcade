@@ -15,6 +15,6 @@ class KakuroActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kakuro)
         gameView = findViewById(R.id.kakuro_view)
-        gameView.onWin = { score -> onGameWin(score) }
+        gameView.onWin = { onGameWin() }
     }
 }

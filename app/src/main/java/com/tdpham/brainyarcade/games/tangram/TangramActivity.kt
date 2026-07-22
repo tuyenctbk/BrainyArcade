@@ -15,6 +15,6 @@ class TangramActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tangram)
         gameView = findViewById(R.id.tangram_view)
-        gameView.onWin = { score -> onGameWin(score) }
+        gameView.onWin = { onGameWin() }
     }
 }

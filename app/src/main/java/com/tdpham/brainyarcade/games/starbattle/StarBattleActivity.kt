@@ -15,6 +15,6 @@ class StarBattleActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_starbattle)
         gameView = findViewById(R.id.starbattle_view)
-        gameView.onWin = { score -> onGameWin(score) }
+        gameView.onWin = { onGameWin() }
     }
 }

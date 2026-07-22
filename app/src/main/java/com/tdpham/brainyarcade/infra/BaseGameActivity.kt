@@ -46,14 +46,19 @@ abstract class BaseGameActivity : AppCompatActivity() {
     private var scoreType: ScoreType = ScoreType.TIME
     protected var currentLevel: Int = 1
     
-    private var startTime: Long = 0
+    private var accumulatedMs: Long = 0L
+    private var lastTickTime: Long = 0L
     private var isTimerRunning = false
+    protected var lastElapsedSeconds: Int = 0
     private val timerHandler = Handler(Looper.getMainLooper())
     private val timerRunnable = object : Runnable {
         override fun run() {
             if (isTimerRunning) {
-                val elapsed = (System.currentTimeMillis() - startTime) / 1000
-                updateScoreDisplay(elapsed.toInt())
+                val now = System.currentTimeMillis()
+                accumulatedMs += now - lastTickTime
+                lastTickTime = now
+                lastElapsedSeconds = (accumulatedMs / 1000).toInt()
+                updateScoreDisplay(lastElapsedSeconds)
                 timerHandler.postDelayed(this, 1000)
             }
         }
@@ -155,14 +160,14 @@ abstract class BaseGameActivity : AppCompatActivity() {
         
         findViewById<android.view.View>(R.id.header_restart)?.apply {
             setOnClickListener { restartGame() }
-            isFocusable = false
-            isFocusableInTouchMode = false
+            isFocusable = true
+            isFocusableInTouchMode = true
         }
         findViewById<android.view.View>(R.id.header_help)?.apply {
             val gameInfo = GameRegistry.ALL_GAMES.find { it.id == gameId }
             setOnClickListener { showHelp(gameInfo?.howToPlayResId) }
-            isFocusable = false
-            isFocusableInTouchMode = false
+            isFocusable = true
+            isFocusableInTouchMode = true
         }
 
         updateScoreDisplay(0)
@@ -185,14 +190,27 @@ abstract class BaseGameActivity : AppCompatActivity() {
     }
 
     protected fun startTimer() {
-        startTime = System.currentTimeMillis()
-        isTimerRunning = true
-        timerHandler.post(timerRunnable)
+        if (!isTimerRunning) {
+            lastTickTime = System.currentTimeMillis()
+            isTimerRunning = true
+            timerHandler.post(timerRunnable)
+        }
     }
 
     protected fun stopTimer() {
-        isTimerRunning = false
-        timerHandler.removeCallbacks(timerRunnable)
+        if (isTimerRunning) {
+            val now = System.currentTimeMillis()
+            accumulatedMs += now - lastTickTime
+            isTimerRunning = false
+            timerHandler.removeCallbacks(timerRunnable)
+        }
+    }
+
+    protected fun resetTimer() {
+        stopTimer()
+        accumulatedMs = 0L
+        lastElapsedSeconds = 0
+        updateScoreDisplay(0)
     }
 
     protected fun updateScoreDisplay(value: Int) {
@@ -213,6 +231,11 @@ abstract class BaseGameActivity : AppCompatActivity() {
         } else {
             String.format(Locale.US, "%d", value)
         }
+    }
+
+    protected fun onGameWin() {
+        val finalScore = if (scoreType == ScoreType.TIME) lastElapsedSeconds else 1000 // Default score if not time
+        onGameOver(finalScore, true)
     }
 
     protected fun onGameWin(score: Int) {
@@ -291,6 +314,7 @@ abstract class BaseGameActivity : AppCompatActivity() {
     protected open fun restartGame() {
         getGameView().resetGame(-1L, currentLevel)
         if (scoreType == ScoreType.TIME) {
+            resetTimer()
             startTimer()
         } else {
             updateScoreDisplay(0)
@@ -328,5 +352,24 @@ abstract class BaseGameActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Log.w("BaseGameActivity", "Failed to apply orientation policy: ${e.message}")
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if (scoreType == ScoreType.TIME) {
+            stopTimer()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (scoreType == ScoreType.TIME) {
+            startTimer()
+        }
+    }
+
+    override fun onDestroy() {
+        stopTimer()
+        super.onDestroy()
     }
 }

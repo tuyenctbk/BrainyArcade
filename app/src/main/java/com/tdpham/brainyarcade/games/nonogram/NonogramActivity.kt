@@ -16,6 +16,6 @@ class NonogramActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nonogram)
         gameView = findViewById(R.id.nonogram_view)
-        gameView.onWin = { score -> onGameWin(score) }
+        gameView.onWin = { onGameWin() }
     }
 }

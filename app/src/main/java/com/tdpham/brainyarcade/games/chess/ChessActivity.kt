@@ -16,7 +16,7 @@ class ChessActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chess)
         gameView = findViewById(R.id.chess_view)
-        gameView.onWin = { score -> onGameOver(score, true) }
+        gameView.onWin = { onGameWin() }
         gameView.onLose = { onGameOver(0, false) }
     }
 }

@@ -15,6 +15,6 @@ class SudokuActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sudoku)
         sudokuView = findViewById(R.id.sudoku_view)
-        sudokuView.onWin = { score -> onGameWin(score) }
+        sudokuView.onWin = { onGameWin() }
     }
 }

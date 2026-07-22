@@ -15,6 +15,6 @@ class NurikabeActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nurikabe)
         gameView = findViewById(R.id.nurikabe_view)
-        gameView.onWin = { score -> onGameWin(score) }
+        gameView.onWin = { onGameWin() }
     }
 }

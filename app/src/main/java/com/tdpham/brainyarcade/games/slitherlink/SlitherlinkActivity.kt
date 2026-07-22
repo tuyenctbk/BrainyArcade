@@ -15,6 +15,6 @@ class SlitherlinkActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_slitherlink)
         gameView = findViewById(R.id.slitherlink_view)
-        gameView.onWin = { score -> onGameWin(score) }
+        gameView.onWin = { onGameWin() }
     }
 }

@@ -173,6 +173,7 @@
     <string name="update_msg">A new version of Brainy Arcade is available with more logic puzzles and improved performance!</string>
     <string name="update_now">Update Now</string>
     <string name="later">Later</string>
+    <string name="no_records">No records yet. Play a game to set one!</string>
     <string name="resume">Resume</string>
     <string name="rate_title">Rate Brainy Arcade</string>
     <string name="rate_message">Enjoying the game? Please take a moment to rate us on the Play Store!</string>

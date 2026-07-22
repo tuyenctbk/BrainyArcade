@@ -155,7 +155,10 @@ class FlowFreeView @JvmOverloads constructor(
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         if (gameOver) return super.onKeyDown(keyCode, event)
         when (keyCode) {
-            KeyEvent.KEYCODE_DPAD_UP -> handleMove(0, -1)
+            KeyEvent.KEYCODE_DPAD_UP -> {
+                if (selectedY == 0 && activePathColor == 0) return false
+                handleMove(0, -1)
+            }
             KeyEvent.KEYCODE_DPAD_DOWN -> handleMove(0, 1)
             KeyEvent.KEYCODE_DPAD_LEFT -> handleMove(-1, 0)
             KeyEvent.KEYCODE_DPAD_RIGHT -> handleMove(1, 0)

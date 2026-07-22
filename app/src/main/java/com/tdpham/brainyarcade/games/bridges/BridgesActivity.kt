@@ -15,6 +15,6 @@ class BridgesActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bridges)
         gameView = findViewById(R.id.bridges_view)
-        gameView.onWin = { score -> onGameOver(score, true) }
+        gameView.onWin = { onGameWin() }
     }
 }

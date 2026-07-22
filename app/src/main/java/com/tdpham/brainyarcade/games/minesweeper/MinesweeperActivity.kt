@@ -16,7 +16,7 @@ class MinesweeperActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_minesweeper)
         gameView = findViewById(R.id.minesweeper_view)
-        gameView.onWin = { score -> onGameOver(score, true) }
+        gameView.onWin = { onGameWin() }
         gameView.onLose = { onGameOver(0, false) }
     }
 }

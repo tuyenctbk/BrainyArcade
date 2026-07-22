@@ -15,6 +15,6 @@ class SkyscraperActivity : BaseGameActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skyscraper)
         gameView = findViewById(R.id.skyscraper_view)
-        gameView.onWin = { score -> onGameWin(score) }
+        gameView.onWin = { onGameWin() }
     }
 }
