@@ -381,6 +381,7 @@ class MainActivity : AppCompatActivity() {
             
             com.google.android.material.dialog.MaterialAlertDialogBuilder(this@MainActivity, R.style.Theme_BrainyArcade_Dialog)
                 .setTitle(getString(R.string.select_level))
+                .setIcon(R.drawable.mascot_neuro)
                 .setItems(levels) { _, which ->
                     if (nextLockedLevel <= 100 && which == levels.size - 1) {
                         AdsManager.showRewarded(this@MainActivity) { _ ->
