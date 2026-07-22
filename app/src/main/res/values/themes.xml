@@ -5,6 +5,7 @@
         <item name="android:statusBarColor">@color/background_pitch_black</item>
         <item name="colorAccent">@color/neon_cyan</item>
         <item name="android:alertDialogTheme">@style/Theme.BrainyArcade.Dialog</item>
+        <item name="android:fitsSystemWindows">true</item>
     </style>
 
     <style name="Theme.BrainyArcade.Dialog" parent="Theme.Material3.Dark.Dialog">
