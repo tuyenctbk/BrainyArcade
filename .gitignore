@@ -1,27 +1,42 @@
-# Built artifacts
-bin/
-gen/
-out/
+# Gradle and Build Cache
+.gradle/
 build/
 app/build/
-.gradle/
+/build/
+/*/build/
 .kotlin/
+.ksp/
 
-# IDE specific files
+# Android Studio and IntelliJ IDEA
 .idea/
 *.iml
 *.ipr
 *.iws
-
-# Local configuration and keys
+.navigation/
+captures/
+.externalNativeBuild/
+.cxx/
 local.properties
-common_release_key.jks
-*.jks
-*.keystore
 
-# Firebase configuration
-app/google-services.json
-
-# OS files
+# OS Junk
 .DS_Store
 Thumbs.db
+*.bak
+*.tmp
+
+# Private keys & Configuration files
+*.jks
+*.keystore
+!debug.keystore
+google-services.json
+app/google-services.json
+.env
+.env.*
+!.env.example
+
+# Built outputs & Logs
+*.apk
+*.ap_
+*.aab
+*.log
+

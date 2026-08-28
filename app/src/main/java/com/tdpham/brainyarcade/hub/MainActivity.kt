@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         onboardingManager = OnboardingManager(this)
         onboardingManager.incrementLaunchCount()
         rowsGrid = findViewById(R.id.hub_rows)
+        rowsGrid.adapter = HubRowAdapter(emptyList(), null) {}
         
         FirebaseManager.initialize(this)
         RemoteConfigHelper.initialize(this)
