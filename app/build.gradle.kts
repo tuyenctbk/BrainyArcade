@@ -8,14 +8,14 @@ plugins {
 
 android {
     namespace = "com.tdpham.brainyarcade"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.tdpham.brainyarcade"
         minSdk = 23
-        targetSdk = 35
-        versionCode = 7
-        versionName = "1.2.0"
+        targetSdk = 36
+        versionCode = 8
+        versionName = "1.3.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
