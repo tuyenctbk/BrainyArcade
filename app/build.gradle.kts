@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.tdpham.brainyarcade"
-        minSdk = 23
+        minSdk = 24
         targetSdk = 36
         versionCode = 9
         versionName = "1.4.0"
