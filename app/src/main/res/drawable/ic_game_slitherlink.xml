@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Slitherlink Continuous Loop Puzzle -->
+    <path
+        android:fillColor="@color/text_white"
+        android:pathData="M3,3h18v2H5v14h14v-6h2v8H3V3z M9,9h6v6H9V9z M11,11v2h2v-2H11z M9,5h2v2H9V5z M17,5h2v2h-2V5z M5,9h2v2H5V9z M5,17h2v2H5V17z M17,17h2v2h-2V17z" />
+</vector>

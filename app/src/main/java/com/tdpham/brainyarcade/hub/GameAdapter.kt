@@ -28,6 +28,11 @@ class GameAdapter(
         holder.bind(games[position])
     }
 
+    override fun onViewRecycled(holder: GameViewHolder) {
+        holder.clearAnimations()
+        super.onViewRecycled(holder)
+    }
+
     override fun getItemCount(): Int = games.size
 
     inner class GameViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -39,6 +44,30 @@ class GameAdapter(
         private val decoration: ImageView = view.findViewById(R.id.game_decoration)
         private val focusBorder: View = view.findViewById(R.id.focus_border)
         private val dailyBadge: View = view.findViewById(R.id.daily_badge)
+
+        fun clearAnimations() {
+            itemView.animate().cancel()
+            itemView.scaleX = 1.0f
+            itemView.scaleY = 1.0f
+            itemView.translationZ = 0f
+            shortDesc.animate().cancel()
+            shortDesc.alpha = 0.0f
+            shortDesc.translationY = 15f
+            decoration.animate().cancel()
+            decoration.scaleX = 1.0f
+            decoration.scaleY = 1.0f
+            banner.animate().cancel()
+            banner.scaleX = 1.0f
+            banner.scaleY = 1.0f
+            banner.translationY = 0f
+            (focusBorder.tag as? android.animation.ValueAnimator)?.cancel()
+            focusBorder.animate().cancel()
+            focusBorder.alpha = 0.0f
+            (dailyBadge.tag as? android.animation.ObjectAnimator)?.cancel()
+            dailyBadge.animate().cancel()
+            dailyBadge.scaleX = 1.0f
+            dailyBadge.scaleY = 1.0f
+        }
 
         init {
             view.setOnClickListener { onGameClick(games[adapterPosition]) }
@@ -101,11 +130,28 @@ class GameAdapter(
             
             if (game.id == dailyGameId) {
                 dailyBadge.visibility = View.VISIBLE
-                dailyBadge.animate().scaleX(1.1f).scaleY(1.1f).setDuration(800)
-                    .setInterpolator(android.view.animation.CycleInterpolator(1000f)).start()
+                val badgePulse = (dailyBadge.tag as? android.animation.ObjectAnimator) ?: run {
+                    val p = android.animation.ObjectAnimator.ofPropertyValuesHolder(
+                        dailyBadge,
+                        android.animation.PropertyValuesHolder.ofFloat(View.SCALE_X, 1.0f, 1.08f),
+                        android.animation.PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.0f, 1.08f)
+                    ).apply {
+                        duration = 1000
+                        repeatCount = android.animation.ValueAnimator.INFINITE
+                        repeatMode = android.animation.ValueAnimator.REVERSE
+                        interpolator = AccelerateDecelerateInterpolator()
+                    }
+                    dailyBadge.tag = p
+                    p
+                }
+                if (!badgePulse.isRunning) {
+                    badgePulse.start()
+                }
             } else {
                 dailyBadge.visibility = View.GONE
-                dailyBadge.animate().cancel()
+                (dailyBadge.tag as? android.animation.ObjectAnimator)?.cancel()
+                dailyBadge.scaleX = 1.0f
+                dailyBadge.scaleY = 1.0f
             }
             
             val startColor = when(game.category) {

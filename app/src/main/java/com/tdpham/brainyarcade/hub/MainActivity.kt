@@ -35,6 +35,7 @@ import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.content.Context
 import android.net.Uri
+import androidx.core.content.pm.PackageInfoCompat
 
 class MainActivity : AppCompatActivity() {
 
@@ -57,14 +58,19 @@ class MainActivity : AppCompatActivity() {
         
         FirebaseManager.initialize(this)
         RemoteConfigHelper.initialize(this)
-        AdsManager.initialize(this)
         
         try {
             adView = findViewById<AdView>(R.id.ad_view_hub)
-            val adRequest = AdRequest.Builder().build()
-            adView?.loadAd(adRequest)
+            AdsManager.initialize(this) {
+                try {
+                    val adRequest = AdRequest.Builder().build()
+                    adView?.loadAd(adRequest)
+                } catch (e: Exception) {
+                    Log.e("MainActivity", "Error loading banner ad: ${e.message}")
+                }
+            }
         } catch (e: Exception) {
-            Log.e("MainActivity", "Error loading banner ad: ${e.message}")
+            Log.e("MainActivity", "Error initializing ads: ${e.message}")
         }
         
         initGamesList()
@@ -103,6 +109,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showCategoriesSelection() {
+        if (isFinishing || isDestroyed) return
         val categories = GameCategory.entries.map { category ->
             when(category) {
                 GameCategory.LOGIC -> getString(R.string.cat_logic)
@@ -130,6 +137,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showRecordsDialog() {
+        if (isFinishing || isDestroyed) return
         lifecycleScope.launch {
             val db = AppDatabase.getDatabase(this@MainActivity)
             val spannable = SpannableStringBuilder()
@@ -196,15 +204,38 @@ class MainActivity : AppCompatActivity() {
         adView?.resume()
         refreshDiscoveryHub()
         checkRatingSuggestion()
+
+        isBackgroundAnimationRunning = true
+        val rootView = findViewById<ViewGroup>(android.R.id.content)?.getChildAt(0)
+        if (rootView != null) {
+            if (currentAnimator == null) {
+                startBackgroundAnimation(rootView)
+            } else if (currentAnimator?.isPaused == true) {
+                currentAnimator?.resume()
+            }
+        }
     }
 
     override fun onPause() {
+        isBackgroundAnimationRunning = false
+        currentAnimator?.pause()
         adView?.pause()
         super.onPause()
     }
 
+    override fun onStop() {
+        isBackgroundAnimationRunning = false
+        currentAnimator?.cancel()
+        currentAnimator = null
+        super.onStop()
+    }
+
     override fun onDestroy() {
+        isBackgroundAnimationRunning = false
+        currentAnimator?.cancel()
+        currentAnimator = null
         adView?.destroy()
+        adView = null
         super.onDestroy()
     }
 
@@ -258,6 +289,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkOnboarding() {
+        if (isFinishing || isDestroyed) return
         if (onboardingManager.isFirstRun()) {
             com.google.android.material.dialog.MaterialAlertDialogBuilder(this, R.style.Theme_BrainyArcade_Dialog)
                 .setTitle(getString(R.string.app_name).uppercase())
@@ -269,6 +301,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkRatingSuggestion() {
+        if (isFinishing || isDestroyed) return
         if (onboardingManager.shouldShowRating()) {
             com.google.android.material.dialog.MaterialAlertDialogBuilder(this, R.style.Theme_BrainyArcade_Dialog)
                 .setTitle("Enjoying Brainy Arcade?")
@@ -318,7 +351,8 @@ class MainActivity : AppCompatActivity() {
     private fun checkForUpdates() {
         if (updatePromptedThisSession) return
         lifecycleScope.launch {
-            val currentVersion = packageManager.getPackageInfo(packageName, 0).versionCode
+            val pInfo = packageManager.getPackageInfo(packageName, 0)
+            val currentVersion = PackageInfoCompat.getLongVersionCode(pInfo)
             val latestVersion = RemoteConfigHelper.getLatestVersion()
             if (latestVersion > currentVersion) {
                 // Wait until the user has won at least one game, or spent 45 seconds in the app
@@ -332,6 +366,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 
                 if (!updatePromptedThisSession) {
+                    if (isFinishing || isDestroyed) return@launch
                     updatePromptedThisSession = true
                     com.google.android.material.dialog.MaterialAlertDialogBuilder(this@MainActivity, R.style.Theme_BrainyArcade_Dialog)
                         .setTitle(getString(R.string.update_available))
@@ -364,6 +399,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showLevelSelection(game: GameInfo) {
+        if (isFinishing || isDestroyed) return
         lifecycleScope.launch {
             val progress = withContext(Dispatchers.IO) { db.gameDao().getProgress(game.id) }
             val maxUnlocked = progress?.maxLevelReached ?: 1
@@ -379,6 +415,7 @@ class MainActivity : AppCompatActivity() {
             
             val levels = levelsList.toTypedArray()
             
+            if (isFinishing || isDestroyed) return@launch
             com.google.android.material.dialog.MaterialAlertDialogBuilder(this@MainActivity, R.style.Theme_BrainyArcade_Dialog)
                 .setTitle(getString(R.string.select_level))
                 .setIcon(R.drawable.mascot_neuro)
@@ -395,8 +432,10 @@ class MainActivity : AppCompatActivity() {
                                         maxLevelReached = newMax
                                     ))
                                 }
-                                Toast.makeText(this@MainActivity, "Level $nextLockedLevel unlocked successfully!", Toast.LENGTH_SHORT).show()
-                                showLevelSelection(game)
+                                if (!isFinishing && !isDestroyed) {
+                                    Toast.makeText(this@MainActivity, "Level $nextLockedLevel unlocked successfully!", Toast.LENGTH_SHORT).show()
+                                    showLevelSelection(game)
+                                }
                             }
                         }
                     } else {
@@ -428,22 +467,6 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Log.w("MainActivity", "Failed to apply orientation policy: ${e.message}")
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        isBackgroundAnimationRunning = true
-        val rootView = findViewById<ViewGroup>(android.R.id.content)?.getChildAt(0)
-        if (rootView != null) {
-            startBackgroundAnimation(rootView)
-        }
-    }
-
-    override fun onStop() {
-        isBackgroundAnimationRunning = false
-        currentAnimator?.cancel()
-        currentAnimator = null
-        super.onStop()
     }
 
     private data class GradientPalette(val startColor: Int, val centerColor: Int, val endColor: Int)
@@ -478,6 +501,7 @@ class MainActivity : AppCompatActivity() {
             val animator = ValueAnimator.ofFloat(0f, 1f)
             animator.duration = 10000 // 10 seconds for a super smooth transition
             animator.addUpdateListener { animation ->
+                if (!isBackgroundAnimationRunning) return@addUpdateListener
                 val fraction = animation.animatedValue as Float
                 val startColor = evaluator.evaluate(fraction, startPalette.startColor, endPalette.startColor) as Int
                 val centerColor = evaluator.evaluate(fraction, startPalette.centerColor, endPalette.centerColor) as Int

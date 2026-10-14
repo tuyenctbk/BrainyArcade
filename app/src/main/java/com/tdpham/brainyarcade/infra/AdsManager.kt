@@ -9,6 +9,9 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 object AdsManager {
     private const val TAG = "AdsManager"
@@ -23,26 +26,59 @@ object AdsManager {
     private var lastAdShowTime: Long = 0L  // Initialize to 0 to allow first ad immediately
     private var adsShownInSession = 0
 
-    fun initialize(context: Context) {
-        if (isInitialized || isInitializing) return
-        
-        val currentTime = System.currentTimeMillis()
-        sessionStartTime = currentTime
-        adsShownInSession = 0
-        Log.d(TAG, "New session started. Ad counter reset.")
+    private val initCallbacks = mutableListOf<() -> Unit>()
 
-        if (!isSessionTracked) {
-            isSessionTracked = true
-            incrementAppOpens(context)
+    fun initialize(context: Context, onInitialized: (() -> Unit)? = null) {
+        synchronized(this) {
+            if (isInitialized) {
+                onInitialized?.invoke()
+                return
+            }
+            if (onInitialized != null) {
+                initCallbacks.add(onInitialized)
+            }
+            if (isInitializing) return
+
+            val currentTime = System.currentTimeMillis()
+            sessionStartTime = currentTime
+            adsShownInSession = 0
+            Log.d(TAG, "New session started. Ad counter reset.")
+
+            if (!isSessionTracked) {
+                isSessionTracked = true
+                incrementAppOpens(context)
+            }
+
+            isInitializing = true
         }
 
-        isInitializing = true
-        MobileAds.initialize(context) { status ->
-            isInitialized = true
-            isInitializing = false
-            Log.d(TAG, "AdMob Initialized: $status")
-            loadInterstitial(context)
-            loadRewarded(context)
+        // Offload heavy Dynamite DEX loading and class linking to IO thread to prevent ANR
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                MobileAds.initialize(context) { status ->
+                    synchronized(AdsManager) {
+                        isInitialized = true
+                        isInitializing = false
+                    }
+                    Log.d(TAG, "AdMob Initialized on background thread: $status")
+                    
+                    CoroutineScope(Dispatchers.Main).launch {
+                        loadInterstitial(context)
+                        loadRewarded(context)
+                        val callbacksToRun: List<() -> Unit>
+                        synchronized(AdsManager) {
+                            callbacksToRun = ArrayList(initCallbacks)
+                            initCallbacks.clear()
+                        }
+                        callbacksToRun.forEach { it.invoke() }
+                    }
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to initialize MobileAds: ${e.message}")
+                synchronized(AdsManager) {
+                    isInitializing = false
+                }
+            }
         }
     }
 

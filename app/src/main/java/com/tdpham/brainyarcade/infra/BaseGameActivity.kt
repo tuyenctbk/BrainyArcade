@@ -265,6 +265,7 @@ abstract class BaseGameActivity : AppCompatActivity() {
         }
 
         runOnUiThread {
+            if (isFinishing || isDestroyed) return@runOnUiThread
             AlertDialog.Builder(this, R.style.Theme_BrainyArcade_Dialog)
                 .setTitle(if (won) getString(R.string.victory) else getString(R.string.game_over))
                 .setIcon(R.drawable.mascot_neuro)
@@ -287,6 +288,7 @@ abstract class BaseGameActivity : AppCompatActivity() {
     }
 
     protected open fun showGameMenu() {
+        if (isFinishing || isDestroyed) return
         val gameInfo = GameRegistry.ALL_GAMES.find { it.id == gameId }
         val items = arrayOf(
             getString(R.string.resume),
@@ -325,6 +327,7 @@ abstract class BaseGameActivity : AppCompatActivity() {
     }
 
     private fun showHelp(guideResId: Int?) {
+        if (isFinishing || isDestroyed) return
         AlertDialog.Builder(this, R.style.Theme_BrainyArcade_Dialog)
             .setTitle(getString(R.string.how_to_play_title))
             .setIcon(R.drawable.mascot_neuro)

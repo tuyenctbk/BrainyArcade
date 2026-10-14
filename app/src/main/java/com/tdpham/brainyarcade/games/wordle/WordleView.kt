@@ -130,7 +130,7 @@ class WordleView @JvmOverloads constructor(
         if (gameOver) return super.onKeyDown(keyCode, event)
         when (keyCode) {
             KeyEvent.KEYCODE_DPAD_UP -> return false // Escape to header
-            in KeyEvent.KEYCODE_A..KeyEvent.KEYCODE_Z -> addChar((keyCode - KeyEvent.KEYCODE_A + 'A'.toInt()).toChar())
+            in KeyEvent.KEYCODE_A..KeyEvent.KEYCODE_Z -> addChar((keyCode - KeyEvent.KEYCODE_A + 'A'.code).toChar())
             KeyEvent.KEYCODE_DEL -> deleteChar()
             KeyEvent.KEYCODE_ENTER, KeyEvent.KEYCODE_DPAD_CENTER -> submitGuess()
             else -> return super.onKeyDown(keyCode, event)

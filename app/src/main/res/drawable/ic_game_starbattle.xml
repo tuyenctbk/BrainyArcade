@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Star Battle Grid & Stars -->
+    <path
+        android:fillColor="@color/text_white"
+        android:pathData="M3,3h18v18H3V3z M5,5v14h14V5H5z M9,7.5l1.09,2.22 2.45,0.36 -1.77,1.72 0.42,2.44 -2.19,-1.15 -2.19,1.15 0.42,-2.44 -1.77,-1.72 2.45,-0.36L9,7.5z M16,13.5l0.87,1.78 1.96,0.28 -1.42,1.38 0.33,1.95 -1.74,-0.92 -1.75,0.92 0.34,-1.95 -1.42,-1.38 1.96,-0.28L16,13.5z" />
+</vector>

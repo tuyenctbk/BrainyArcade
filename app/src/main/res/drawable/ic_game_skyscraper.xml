@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Skyscraper Heights Puzzle -->
+    <path
+        android:fillColor="@color/text_white"
+        android:pathData="M15,11V5l-5,-3 -5,3v6H2v11h20V11H15z M7,6.47l3,-1.8 3,1.8V11H7V6.47z M9,20H4v-7h5V20z M15,20h-4v-7h4V20z M20,20h-3v-7h3V20z" />
+</vector>
